@@ -37,8 +37,8 @@ function App(){
  const headerTitle=page==='Home'?'Your digital life, simplified':page;
  return <div className="app-shell">
   <aside className={'sidebar '+(mobileMenu?'sidebar-open':'')}><div className="side-brand"><Brand/></div><div className="workspace-label">YOUR ACCOUNT</div><nav>{menu.map(m=><button key={m.name} className={'nav-item '+(page===m.name?'active':'')} onClick={()=>go(m.name)}><m.icon size={19}/><span>{m.name}</span>{m.name==='Wallet'&&<span className="nav-dot"/>}</button>)}</nav><div className="side-bottom"><div className="help-card"><div className="help-icon"><Headphones size={20}/></div><b>Need a hand?</b><p>Our support team is here for you.</p><button onClick={()=>setNotice('Support centre is a demo screen. Connect your support channel to enable live help.')}>Get support <ArrowRight size={14}/></button></div><button className="nav-item" onClick={()=>go('Settings')}><Settings size={18}/> Settings</button><div className="side-user"><div className="avatar">{(user.fullName||'EY').split(/\s+/).map(s=>s[0]).join('').slice(0,2).toUpperCase()}</div><div><b>{user.fullName}</b><span>{user.email}</span></div></div><button className="nav-item signout-button" onClick={signOut}><ShieldCheck size={18}/><span>Sign out</span></button></div></aside>
-  {mobileMenu&&<button className="sidebar-backdrop" aria-label="Close navigation menu" onClick={()=>setMobileMenu(false)}/>}<main className="main-area">
-  <div className="content"><div className="page-heading page-heading-clean"><button className="mobile-menu-btn" aria-label={mobileMenu?'Close navigation menu':'Open navigation menu'} aria-expanded={mobileMenu} onClick={()=>setMobileMenu(v=>!v)}><Menu size={20}/></button></div>
+  <main className="main-area">
+  <div className="content">
   {notice&&<div className="notice"><span><Check size={17}/></span><p>{notice}</p><button onClick={()=>setNotice('')}>×</button></div>}
   {page==='Home'&&<>
    <section className="hero-grid home-hero">
