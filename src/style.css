@@ -1316,3 +1316,73 @@ footer,.footer{color:#8190a3}
 @media(prefers-reduced-motion:reduce){
  .auth-card-hausa .auth-submit{transition:none}
 }
+
+
+/* AUTH MOTION SYSTEM — subtle, responsive and accessible */
+@keyframes authEnter {
+ from { opacity:0; transform:translateY(18px) scale(.992); }
+ to { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes authCopyEnter {
+ from { opacity:0; transform:translateY(14px); }
+ to { opacity:1; transform:translateY(0); }
+}
+@keyframes authOrbFloat {
+ 0%,100% { transform:translate3d(0,0,0) rotate(0deg); }
+ 50% { transform:translate3d(-14px,12px,0) rotate(3deg); }
+}
+@keyframes authGlow {
+ 0%,100% { opacity:.65; }
+ 50% { opacity:1; }
+}
+@keyframes authFieldEnter {
+ from { opacity:0; transform:translateY(8px); }
+ to { opacity:1; transform:translateY(0); }
+}
+.auth-screen-hausa .auth-layout{
+ animation:authEnter .65s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth-screen-hausa .auth-welcome-copy,
+.auth-screen-hausa .auth-brand-light,
+.auth-screen-hausa .auth-panel-footer{
+ animation:authCopyEnter .65s ease-out both;
+}
+.auth-screen-hausa .auth-brand-light{animation-delay:.08s}
+.auth-screen-hausa .auth-welcome-copy{animation-delay:.16s}
+.auth-screen-hausa .auth-panel-footer{animation-delay:.28s}
+.auth-screen-hausa .auth-decoration-one{animation:authOrbFloat 13s ease-in-out infinite}
+.auth-screen-hausa .auth-decoration-two{animation:authOrbFloat 17s ease-in-out infinite reverse}
+.auth-screen-hausa .auth-mark{animation:authGlow 4s ease-in-out infinite}
+.auth-screen-hausa .auth-form>label,
+.auth-screen-hausa .auth-form>.auth-error,
+.auth-screen-hausa .auth-form>.auth-submit{
+ animation:authFieldEnter .38s ease-out both;
+}
+.auth-screen-hausa .auth-form>label:nth-child(1){animation-delay:.04s}
+.auth-screen-hausa .auth-form>label:nth-child(2){animation-delay:.08s}
+.auth-screen-hausa .auth-form>label:nth-child(3){animation-delay:.12s}
+.auth-screen-hausa .auth-form>label:nth-child(4){animation-delay:.16s}
+.auth-screen-hausa .auth-form>.auth-submit{animation-delay:.2s}
+.auth-screen-hausa .auth-input{transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease,transform .2s ease}
+.auth-screen-hausa .auth-input:focus-within{transform:translateY(-1px)}
+.auth-screen-hausa .auth-switch button{transition:color .18s ease,opacity .18s ease}
+.auth-screen-hausa .auth-switch button:hover{color:#c09230}
+.auth-screen-hausa .auth-card-hausa .auth-submit svg{transition:transform .2s ease}
+.auth-screen-hausa .auth-card-hausa .auth-submit:hover:not(:disabled) svg{transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){
+ .auth-screen-hausa .auth-layout,
+ .auth-screen-hausa .auth-welcome-copy,
+ .auth-screen-hausa .auth-brand-light,
+ .auth-screen-hausa .auth-panel-footer,
+ .auth-screen-hausa .auth-decoration-one,
+ .auth-screen-hausa .auth-decoration-two,
+ .auth-screen-hausa .auth-mark,
+ .auth-screen-hausa .auth-form>label,
+ .auth-screen-hausa .auth-form>.auth-error,
+ .auth-screen-hausa .auth-form>.auth-submit{
+  animation:none!important;
+ }
+ .auth-screen-hausa .auth-input,
+ .auth-screen-hausa .auth-switch button,
+ .auth-screen-hausa .auth-card-hausa .auth-submit svg{transition:none!important}
+}
