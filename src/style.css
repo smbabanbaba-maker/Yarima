@@ -906,3 +906,10 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .page-heading-clean{display:flex!important;min-height:0!important;margin:0!important;padding:0!important;align-items:center!important;justify-content:flex-start!important;gap:0!important}
 .page-heading-clean>div,.page-heading-clean .heading-actions{display:none!important}
 .page-heading-clean .mobile-menu-btn{margin:0 0 12px!important}
+
+/* Remove the oversized blank area below page content on mobile. Keep only enough room for the fixed bottom navigation. */
+@media(max-width:650px){
+  .app-shell{padding-bottom:0!important}
+  .main-area{padding-bottom:0!important}
+  .content{padding-bottom:52px!important}
+}
