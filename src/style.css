@@ -1027,3 +1027,69 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .app-shell:has(.purchase-panel) .network-choice b{font-size:9px}
  .app-shell:has(.purchase-panel) .plan-main b{font-size:18px}
 }
+
+
+/* Compact data-plan catalogue: remove non-essential promo/sidebar clutter */
+.app-shell:has(.data-page-wrap) .content{background:radial-gradient(ellipse at 72% 0%,#063b2b38,transparent 36%),#031315}
+.app-shell:has(.data-page-wrap) .data-page-wrap{width:100%;max-width:1180px;margin:0 auto}
+.app-shell:has(.data-page-wrap) .data-purchase-panel{padding:22px;border-radius:22px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .panel-heading{margin-bottom:16px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .field-label{margin-top:15px;margin-bottom:8px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .network-grid{gap:9px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .network-choice{min-height:83px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .network-logo{width:43px;height:43px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .input-wrap{height:49px}
+.app-shell:has(.data-page-wrap) .data-plans-heading{margin-top:3px}
+.app-shell:has(.data-page-wrap) .data-plans-heading .field-label{margin-top:16px}
+.app-shell:has(.data-page-wrap) .data-plans-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.app-shell:has(.data-page-wrap) .data-plan-card{min-height:128px;padding:12px 11px 10px;gap:5px;border-radius:14px}
+.app-shell:has(.data-page-wrap) .data-plan-card:before{height:2px}
+.app-shell:has(.data-page-wrap) .data-plan-card .plan-radio{top:8px;right:8px;width:14px;height:14px}
+.app-shell:has(.data-page-wrap) .data-plan-card .plan-main{gap:4px;margin-top:6px;width:100%;padding-right:9px}
+.app-shell:has(.data-page-wrap) .data-plan-card .plan-main b{font-size:16px;line-height:1.2;overflow-wrap:anywhere}
+.app-shell:has(.data-page-wrap) .data-plan-card .plan-main small{font-size:9px;line-height:1.35;overflow-wrap:anywhere}
+.app-shell:has(.data-page-wrap) .data-plan-card .plan-main .plan-validity{font-size:9px;color:#72a89b}
+.app-shell:has(.data-page-wrap) .data-plan-card strong{font-size:11px;padding:7px 4px;border-radius:8px;margin-top:4px}
+.app-shell:has(.data-page-wrap) .data-plan-card.unavailable{opacity:.7;cursor:not-allowed;border-style:dashed}
+.app-shell:has(.data-page-wrap) .data-plan-card.unavailable strong{font-size:9px;background:#233438;color:#b4c7c3}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .btn-wide{margin-top:15px;min-height:44px}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .btn-primary:disabled{opacity:.42;cursor:not-allowed;filter:grayscale(.35);transform:none;box-shadow:none}
+.app-shell:has(.data-page-wrap) .data-purchase-panel .safe-note{margin-top:10px}
+.app-shell:has(.data-page-wrap) .network-plans-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:34px 20px;margin-top:4px;border:1px dashed #1d5b54;border-radius:16px;color:#a5c8c0;background:#06201e}
+.app-shell:has(.data-page-wrap) .network-plans-empty svg{color:#26e8a0}
+.app-shell:has(.data-page-wrap) .network-plans-empty b{font-size:13px;color:#e7fff5}
+.app-shell:has(.data-page-wrap) .network-plans-empty p{font-size:11px;line-height:1.6;max-width:340px;margin:0;color:#8bb2a9}
+@media(max-width:1000px){
+ .app-shell:has(.data-page-wrap) .data-plans-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ .app-shell:has(.data-page-wrap) .content{padding:14px 10px 10px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel{padding:15px 11px;border-radius:18px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .panel-heading{gap:10px;margin-bottom:12px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .panel-heading h2{font-size:18px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .panel-heading p{font-size:10px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .field-label{font-size:9px;margin-top:12px;margin-bottom:7px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-grid{gap:6px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-choice{min-height:72px;gap:5px;border-radius:12px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-logo{width:35px;height:35px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-logo-mtn{font-size:10px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-logo-glo{font-size:18px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .network-choice b{font-size:9px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .input-wrap{height:45px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .input-wrap input{font-size:12px}
+ .app-shell:has(.data-page-wrap) .data-plans-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .app-shell:has(.data-page-wrap) .data-plan-card{min-height:112px;padding:10px 9px 8px;border-radius:12px}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-main{margin-top:5px;gap:3px}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-main b{font-size:14px;letter-spacing:-.2px}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-main small{font-size:8px;line-height:1.3}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-main .plan-validity{font-size:8px}
+ .app-shell:has(.data-page-wrap) .data-plan-card strong{font-size:10px;padding:6px 3px;margin-top:3px}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-radio{width:12px;height:12px;top:7px;right:7px}
+ .app-shell:has(.data-page-wrap) .data-plan-card.selected .plan-radio i{width:6px;height:6px}
+ .app-shell:has(.data-page-wrap) .data-purchase-panel .safe-note{font-size:9px;line-height:1.4}
+}
+@media(max-width:360px){
+ .app-shell:has(.data-page-wrap) .data-purchase-panel{padding:13px 9px}
+ .app-shell:has(.data-page-wrap) .data-plan-card .plan-main b{font-size:13px}
+ .app-shell:has(.data-page-wrap) .data-plan-card{padding:9px 8px 7px}
+}
