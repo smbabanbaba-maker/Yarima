@@ -948,7 +948,7 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .app-shell:has(.purchase-panel) .network-check{color:#20e8a0;background:#064d3b;border-radius:50%;padding:3px;width:22px;height:22px;right:8px;top:8px}
 .app-shell:has(.purchase-panel) .network-logo{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:900;box-shadow:0 7px 16px #0004}
 .app-shell:has(.purchase-panel) .network-logo-mtn{background:#ffcc00;color:#07509b;font-style:italic;font-size:14px;letter-spacing:-1px}
-.app-shell:has(.purchase-panel) .network-logo-airtel{background:#e60023;color:white;font-size:11px}
+.app-shell:has(.purchase-panel) .network-logo-airtel{background:#fff;color:#e60023;font-size:11px;border:1px solid #f0d5d5}
 .app-shell:has(.purchase-panel) .airtel-wordmark{display:flex;flex-direction:column;align-items:center;font-weight:800;letter-spacing:-.5px}
 .app-shell:has(.purchase-panel) .airtel-wordmark i{width:16px;height:7px;border:2px solid white;border-bottom:0;border-radius:14px 14px 0 0;transform:rotate(-25deg);margin-bottom:2px}
 .app-shell:has(.purchase-panel) .network-logo-glo{background:#079b45;color:white;font-size:23px;font-weight:500;letter-spacing:-1.5px}
