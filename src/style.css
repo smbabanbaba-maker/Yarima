@@ -97,3 +97,57 @@
  .mobile-bottom-nav{left:8px;right:8px;padding-left:4px;padding-right:4px}
 }
 @media(min-width:651px){.content{padding-top:28px}.home-hero .balance-card{max-width:none}.mobile-bottom-nav{display:none!important}}
+
+
+/* EL YARIMA logo-led premium palette and precise controls */
+:root{--navy:#071b3a;--navy2:#102d58;--gold:#d7a42f;--gold2:#fff0a4;--muted:#77849a;--line:#e7ebf2;--white:#fff;--brand-bg:#f7f8fb;--brand-gold:#bd8b25}
+body,.app-shell{background:#f7f8fb;color:#17263e}
+button{transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease}
+button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
+.btn{min-height:40px;padding:10px 15px;border-radius:11px;font-size:12px;font-weight:750;gap:7px}
+.btn-primary{background:var(--navy);border:1px solid var(--navy);color:#fff;box-shadow:0 4px 10px #071b3a12}
+.btn-primary:hover{background:#102d58;box-shadow:0 6px 14px #071b3a20}
+.btn-gold{background:var(--gold);color:var(--navy);border:1px solid #c18b1d}.btn-gold:hover{background:#e4b94f}
+.btn-outline{border:1px solid #dfe4ec;background:#fff;color:var(--navy)}
+.panel,.services-section{border-color:#e9edf3;box-shadow:0 5px 18px rgba(7,27,58,.035)}
+.home-hero .balance-card{background:linear-gradient(135deg,#071b3a 0%,#102d58 64%,#07162d 100%);border:1px solid #d7a42f;box-shadow:0 12px 28px rgba(7,27,58,.13);border-radius:22px;color:#fff}
+.home-hero .balance-card:before{border-color:#d7a42f38;box-shadow:0 0 0 25px #d7a42f0b,0 0 0 52px #d7a42f08}
+.home-hero .balance-card:after{border-color:#d7a42f55}
+.home-hero .light-label{color:#e7d7ad}.home-hero .tier,.home-hero .tier-star{color:#f2d68b}.home-hero .balance-amount{color:#fff}.home-hero .balance-footer{border-top-color:#ffffff22}
+.home-hero .copy-btn{background:#ffffff12;border:1px solid #d7a42f66;color:#f2d68b;width:28px;height:28px;border-radius:8px}
+.home-hero .btn-gold{background:linear-gradient(135deg,#fff0a4,#d7a42f);color:#071b3a;border:1px solid #e7c86e;border-radius:10px;min-height:36px;padding:9px 12px;font-size:11px;font-weight:850;box-shadow:0 4px 10px #00000018}
+.home-quick-grid .quick-card{gap:8px}
+.home-quick-grid .quick-icon{width:62px;height:62px;border:1.5px solid #d7a42f;border-radius:16px;background:#fff!important;color:#102d58!important;box-shadow:0 4px 12px #071b3a0a}
+.home-quick-grid .quick-icon svg{width:21px;height:21px}
+.home-quick-grid .quick-copy b{font-size:10px;letter-spacing:.45px;color:#102d58}
+.home-services-section{background:#fff;border-color:#e9e4d7;box-shadow:0 6px 20px #071b3a06}
+.home-services-section .section-title h2{color:#071b3a}.home-services-section .service-grid{gap:14px 10px}
+.home-services-section .service-tile{min-height:78px;gap:7px;border-radius:12px;padding:8px 3px}
+.home-services-section .service-icon{width:34px;height:34px;color:#102d58}.home-services-section .service-icon svg{width:20px;height:20px}
+.home-services-section .service-tile b{font-size:9px;color:#647188;font-weight:800;letter-spacing:.15px}
+.home-services-section .service-tile:hover{background:#fbf7ec}.home-services-section .service-tile:focus-visible{outline:2px solid #d7a42f}
+.mobile-bottom-nav{display:none}
+@media(max-width:650px){
+ .content{padding:18px 15px 24px}.home-hero .balance-card{min-height:207px;padding:21px 18px;border-radius:20px}
+ .home-hero .balance-amount{font-size:32px;margin:14px 0 24px;letter-spacing:-1px}.home-hero .balance-footer{padding-top:12px;gap:8px}
+ .home-hero .balance-footer>div>b{font-size:11px;letter-spacing:.4px;gap:5px}.home-hero .balance-footer .btn{min-height:34px;padding:8px 10px;font-size:10px}
+ .home-quick-section{margin-top:23px}.home-quick-grid{gap:4px}.home-quick-grid .quick-card{gap:8px}
+ .home-quick-grid .quick-icon{width:clamp(49px,15.5vw,60px);height:clamp(49px,15.5vw,60px);border-radius:15px}.home-quick-grid .quick-copy b{font-size:9px;letter-spacing:.25px}
+ .home-services-section{margin-top:24px;padding:18px 12px 15px;border-radius:21px}.home-services-section .section-title{margin-bottom:12px}.home-services-section .section-title h2{font-size:14px}
+ .home-services-section .service-grid{gap:10px 3px}.home-services-section .service-tile{min-height:68px;gap:5px;padding:6px 1px}
+ .home-services-section .service-icon{width:30px;height:30px}.home-services-section .service-icon svg{width:18px;height:18px}.home-services-section .service-tile b{font-size:8px;line-height:1.25}
+ .mobile-bottom-nav{position:fixed;left:13px;right:13px;bottom:calc(9px + env(safe-area-inset-bottom));z-index:40;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:end;gap:2px;padding:7px 6px 6px;background:rgba(255,255,255,.97);border:1px solid #e6dfcc;border-radius:20px;box-shadow:0 8px 25px rgba(7,27,58,.13);backdrop-filter:blur(18px)}
+ .mobile-bottom-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0;min-height:43px;padding:2px 0;border:0;border-radius:11px;background:transparent;color:#8992a2}
+ .mobile-bottom-item small{font-size:8px;font-weight:750;line-height:1.1}.mobile-bottom-icon{display:grid;place-items:center;width:27px;height:25px}.mobile-bottom-icon svg{width:18px;height:18px;stroke-width:1.9}
+ .mobile-bottom-item.active{color:#102d58}.mobile-bottom-item.active:before{content:"";position:absolute;top:-2px;width:18px;height:2px;border-radius:5px;background:#d7a42f}
+ .mobile-bottom-item.mobile-home-item .mobile-bottom-icon{width:45px;height:45px;margin-top:-21px;border:3px solid #fff;border-radius:15px;background:linear-gradient(145deg,#102d58,#071b3a);color:#f2d68b;box-shadow:0 0 0 1.5px #d7a42f,0 5px 12px #071b3a25}
+ .mobile-bottom-item.mobile-home-item .mobile-bottom-icon svg{width:21px;height:21px;stroke-width:2.2}.mobile-bottom-item.mobile-home-item small{color:#102d58;font-weight:850}
+ .mobile-bottom-item:active{transform:scale(.97)}.btn{min-height:38px;padding:9px 12px;font-size:11px}
+}
+@media(max-width:390px){
+ .content{padding-left:12px;padding-right:12px}.home-hero .balance-card{padding:19px 15px}.home-hero .balance-amount{font-size:29px}
+ .home-hero .balance-footer .btn{padding:8px;font-size:9px}.home-quick-grid .quick-icon{width:49px;height:49px;border-radius:13px}
+ .home-quick-grid .quick-copy b{font-size:8px}.home-services-section{padding-left:8px;padding-right:8px}.home-services-section .service-tile b{font-size:7.5px}
+ .mobile-bottom-nav{left:8px;right:8px;padding-left:3px;padding-right:3px}
+}
+@media(min-width:651px){.mobile-bottom-nav{display:none!important}}
