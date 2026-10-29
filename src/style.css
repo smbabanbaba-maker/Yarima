@@ -1696,3 +1696,45 @@ footer,.footer{color:#8190a3}
  .app-shell .content .btn-primary,
  .app-shell .content .btn-gold { transition:none!important; }
 }
+
+
+/* Minimal, understated developer attribution */
+.profile-company-credit {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:2px;
+  padding:12px 10px 16px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  animation:appPageReveal .4s .2s both;
+}
+.profile-company-credit::after,
+.profile-company-logo,
+.profile-company-badge { display:none!important; }
+.profile-company-copy {
+  display:flex;
+  flex-direction:row;
+  align-items:baseline;
+  justify-content:center;
+  gap:6px;
+  text-align:center;
+}
+.profile-company-copy>span {
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:.2px;
+  color:#8792a2;
+}
+.profile-company-copy strong {
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#687589;
+}
+.profile-company-copy small { display:none; }
+@media(prefers-reduced-motion:reduce) {
+  .profile-company-credit { animation:none!important; }
+}
