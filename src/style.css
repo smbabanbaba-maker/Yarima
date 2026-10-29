@@ -190,3 +190,35 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .promo-kicker{font-size:6.5px;letter-spacing:.8px}
 }
 @media(prefers-reduced-motion:reduce){.brand-promo-slide,.promo-progress span{animation:none}}
+
+
+/* Compact, complete match-day advert — keep Home uncluttered */
+.brand-promo-rotator{margin:12px 0 6px;border-radius:12px}
+.brand-promo-slide{min-height:66px;gap:8px;padding:8px 10px;border-radius:12px}
+.promo-brand-mark{flex:0 0 32px;width:32px;height:32px;border-radius:9px}
+.promo-brand-mark img{width:25px;height:25px}
+.promo-football{position:relative;z-index:1;display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;font-size:27px;filter:drop-shadow(0 3px 4px #0004)}
+.promo-copy{gap:2px}
+.promo-kicker{font-size:6.5px;letter-spacing:.8px}
+.promo-copy strong{font-size:11px;line-height:1.15}
+.promo-copy small{font-size:8px;line-height:1.2}
+.promo-counter{font-size:8px}
+.promo-counter i{font-size:7px}
+@media(max-width:650px){
+ .brand-promo-rotator{margin-top:11px;margin-bottom:5px;border-radius:11px}
+ .brand-promo-slide{min-height:62px;gap:6px;padding:7px 8px;border-radius:11px}
+ .promo-brand-mark{flex-basis:28px;width:28px;height:28px;border-radius:8px}
+ .promo-brand-mark img{width:22px;height:22px}
+ .promo-football{flex-basis:29px;width:29px;height:29px;font-size:23px}
+ .promo-copy{gap:2px}
+ .promo-kicker{font-size:6px;letter-spacing:.55px}
+ .promo-copy strong{font-size:10px}
+ .promo-copy small{font-size:7.5px}
+ .promo-counter{font-size:7px}
+}
+@media(max-width:360px){
+ .promo-brand-mark{display:none}
+ .promo-copy strong{font-size:9px}
+ .promo-copy small{font-size:7px}
+ .promo-football{font-size:21px;flex-basis:25px;width:25px}
+}
