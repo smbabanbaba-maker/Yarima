@@ -1386,3 +1386,157 @@ footer,.footer{color:#8190a3}
  .auth-screen-hausa .auth-switch button,
  .auth-screen-hausa .auth-card-hausa .auth-submit svg{transition:none!important}
 }
+
+
+/* AUTH CINEMATIC MOTION — stronger visual movement without adding dependencies */
+@keyframes authBackdropDrift {
+  0% { background-position:0% 0%,100% 100%,0 0; }
+  50% { background-position:100% 45%,0% 55%,0 0; }
+  100% { background-position:0% 0%,100% 100%,0 0; }
+}
+@keyframes authRingRotate { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+@keyframes authRingRotateReverse { from { transform:rotate(360deg); } to { transform:rotate(0deg); } }
+@keyframes authParticleRise {
+  0% { transform:translate3d(0,25px,0) scale(.7); opacity:0; }
+  18% { opacity:.65; }
+  75% { opacity:.45; }
+  100% { transform:translate3d(0,-90px,0) scale(1.15); opacity:0; }
+}
+@keyframes authLogoFloat {
+  0%,100% { transform:translateY(0) rotate(0); box-shadow:0 8px 24px #0002; }
+  50% { transform:translateY(-5px) rotate(-2deg); box-shadow:0 16px 32px #0004; }
+}
+@keyframes authButtonShimmer {
+  0% { transform:translateX(-150%) skewX(-18deg); opacity:0; }
+  18% { opacity:.55; }
+  42%,100% { transform:translateX(250%) skewX(-18deg); opacity:0; }
+}
+@keyframes authButtonPulse {
+  0%,100% { box-shadow:0 9px 22px #d9aa4238,0 0 0 0 #d9aa4200; }
+  50% { box-shadow:0 12px 28px #d9aa424a,0 0 0 5px #d9aa420c; }
+}
+@keyframes authMarkOrbit {
+  from { transform:rotate(0deg) translateX(3px) rotate(0deg); }
+  to { transform:rotate(360deg) translateX(3px) rotate(-360deg); }
+}
+@keyframes authHeadingReveal {
+  0% { opacity:0; transform:translateY(20px); filter:blur(5px); }
+  100% { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@keyframes authBenefitReveal {
+  0% { opacity:0; transform:translateX(-18px); }
+  100% { opacity:1; transform:translateX(0); }
+}
+.auth-screen-hausa{
+ background-size:180% 180%,180% 180%,auto;
+ animation:authBackdropDrift 18s ease-in-out infinite;
+ overflow:hidden;
+}
+.auth-screen-hausa::before,
+.auth-screen-hausa::after{
+ content:"";
+ position:fixed;
+ pointer-events:none;
+ z-index:0;
+ border-radius:50%;
+}
+.auth-screen-hausa::before{
+ width:min(64vw,680px);height:min(64vw,680px);
+ top:-24%;left:-16%;
+ border:1px solid #d9aa4220;
+ box-shadow:0 0 0 24px #d9aa4208,0 0 0 60px #ffffff05,0 0 95px #1c6bb01a inset;
+ animation:authRingRotate 48s linear infinite;
+}
+.auth-screen-hausa::after{
+ width:min(50vw,540px);height:min(50vw,540px);
+ right:-18%;bottom:-24%;
+ border:1px dashed #a9c8ef24;
+ box-shadow:0 0 0 28px #ffffff04,0 0 0 70px #d9aa4205;
+ animation:authRingRotateReverse 62s linear infinite;
+}
+.auth-screen-hausa .auth-layout{position:relative;z-index:1;backdrop-filter:blur(2px)}
+.auth-screen-hausa .auth-welcome-panel{position:relative;isolation:isolate;overflow:hidden}
+.auth-screen-hausa .auth-welcome-panel::before{
+ content:"";
+ position:absolute;z-index:-1;pointer-events:none;
+ width:330px;height:330px;border:1px solid #e4c56b28;border-radius:50%;
+ right:-155px;top:17%;
+ box-shadow:0 0 0 24px #e4c56b08,0 0 0 56px #e4c56b05;
+ animation:authRingRotate 36s linear infinite;
+}
+.auth-screen-hausa .auth-welcome-panel::after{
+ content:"";
+ position:absolute;z-index:-1;pointer-events:none;
+ width:210px;height:210px;border:1px dashed #a7c9f02b;border-radius:50%;
+ right:-95px;top:30%;
+ animation:authRingRotateReverse 24s linear infinite;
+}
+.auth-screen-hausa .auth-brand-light img,
+.auth-screen-hausa .auth-mobile-brand img{
+ animation:authLogoFloat 4s ease-in-out infinite;
+}
+.auth-screen-hausa .auth-welcome-copy h2{
+ animation:authHeadingReveal .85s .18s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth-screen-hausa .auth-welcome-copy>p{
+ animation:authHeadingReveal .85s .28s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth-screen-hausa .auth-benefits>div{
+ animation:authBenefitReveal .6s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth-screen-hausa .auth-benefits>div:nth-child(1){animation-delay:.3s}
+.auth-screen-hausa .auth-benefits>div:nth-child(2){animation-delay:.43s}
+.auth-screen-hausa .auth-benefits>div:nth-child(3){animation-delay:.56s}
+.auth-screen-hausa .auth-mark{
+ animation:authGlow 3s ease-in-out infinite,authMarkOrbit 7s ease-in-out infinite;
+}
+.auth-screen-hausa .auth-card-hausa .auth-submit{
+ animation:authButtonPulse 3.2s ease-in-out infinite;
+}
+.auth-screen-hausa .auth-card-hausa .auth-submit::after{
+ content:"";
+ position:absolute;top:-30%;bottom:-30%;left:0;width:32%;
+ background:linear-gradient(90deg,transparent,#ffffffb5,transparent);
+ pointer-events:none;
+ animation:authButtonShimmer 3.8s ease-in-out infinite;
+}
+.auth-screen-hausa .auth-card-hausa .auth-submit:disabled::after{animation:none}
+.auth-screen-hausa .auth-pill svg,
+.auth-screen-hausa .auth-eyebrow svg{
+ animation:authGlow 2.8s ease-in-out infinite;
+}
+.auth-screen-hausa .auth-benefits>div>span{
+ transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.auth-screen-hausa .auth-benefits>div:hover>span{
+ transform:rotate(-7deg) scale(1.08);
+ background:#d9aa4226;
+ box-shadow:0 0 0 5px #d9aa420b;
+}
+.auth-screen-hausa .auth-card-hausa .auth-submit{isolation:isolate}
+.auth-screen-hausa .auth-card-hausa .auth-submit svg{position:relative;z-index:1}
+@media(max-width:800px){
+ .auth-screen-hausa::before{width:350px;height:350px;top:-100px;left:-190px}
+ .auth-screen-hausa::after{width:300px;height:300px;right:-180px;bottom:-90px}
+ .auth-screen-hausa .auth-welcome-panel::before,
+ .auth-screen-hausa .auth-welcome-panel::after{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .auth-screen-hausa,
+ .auth-screen-hausa::before,
+ .auth-screen-hausa::after,
+ .auth-screen-hausa .auth-welcome-panel::before,
+ .auth-screen-hausa .auth-welcome-panel::after,
+ .auth-screen-hausa .auth-brand-light img,
+ .auth-screen-hausa .auth-mobile-brand img,
+ .auth-screen-hausa .auth-welcome-copy h2,
+ .auth-screen-hausa .auth-welcome-copy>p,
+ .auth-screen-hausa .auth-benefits>div,
+ .auth-screen-hausa .auth-mark,
+ .auth-screen-hausa .auth-card-hausa .auth-submit,
+ .auth-screen-hausa .auth-card-hausa .auth-submit::after,
+ .auth-screen-hausa .auth-pill svg,
+ .auth-screen-hausa .auth-eyebrow svg{
+  animation:none!important;
+ }
+}
