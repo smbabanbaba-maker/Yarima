@@ -251,3 +251,40 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .promo-copy strong{font-size:10px}
  .promo-copy small{font-size:7.5px}
 }
+
+
+/* Wide, attention-grabbing home promo banner */
+.brand-promo-rotator{width:100%;margin:16px 0 12px;border-radius:18px;overflow:hidden}
+.brand-promo-slide{width:100%;min-height:154px;box-sizing:border-box;padding:20px 22px;gap:16px;border-radius:18px;border-width:1.5px}
+.promo-brand-mark{flex:0 0 54px;width:54px;height:54px;border-radius:14px}
+.promo-brand-mark img{width:40px;height:40px}
+.promo-football{flex:0 0 54px;width:54px;height:54px;font-size:42px}
+.promo-copy{gap:6px}
+.promo-kicker{font-size:9px;letter-spacing:1.2px}
+.promo-copy strong{font-size:17px;line-height:1.25}
+.promo-copy small{font-size:11px;line-height:1.45;max-width:440px}
+.promo-counter{font-size:11px;padding-top:4px}
+.promo-counter i{font-size:9px}
+.brand-promo-slide:after{height:4px}
+.promo-progress{height:3px}
+@media(max-width:650px){
+ .brand-promo-rotator{margin:14px 0 10px;border-radius:16px}
+ .brand-promo-slide{min-height:142px;padding:17px 14px;gap:10px;border-radius:16px}
+ .promo-brand-mark{flex-basis:42px;width:42px;height:42px;border-radius:12px}
+ .promo-brand-mark img{width:31px;height:31px}
+ .promo-football{flex-basis:42px;width:42px;height:42px;font-size:33px}
+ .promo-copy{gap:5px}
+ .promo-kicker{font-size:7px;letter-spacing:.7px}
+ .promo-copy strong{font-size:14px;line-height:1.25}
+ .promo-copy small{font-size:10px;line-height:1.4}
+ .promo-counter{font-size:9px;padding-top:2px}
+ .promo-counter i{font-size:8px}
+}
+@media(max-width:390px){
+ .brand-promo-slide{min-height:138px;padding:15px 11px;gap:8px}
+ .promo-brand-mark{flex-basis:36px;width:36px;height:36px}
+ .promo-brand-mark img{width:27px;height:27px}
+ .promo-football{flex-basis:34px;width:34px;height:34px;font-size:28px}
+ .promo-copy strong{font-size:12px}
+ .promo-copy small{font-size:9px}
+}
