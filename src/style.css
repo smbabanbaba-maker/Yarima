@@ -694,3 +694,8 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .wallet-method-status{max-width:78px;white-space:normal;text-align:center;line-height:1.2}
  .wallet-method-row{gap:6px;padding:9px}
 }
+
+
+/* Wallet page: remove duplicate global title so the premium balance card leads */
+.wallet-page-heading{display:none!important}
+.wallet-premium-page{padding-top:2px}
