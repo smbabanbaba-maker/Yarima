@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a4"/><stop offset=".45" stop-color="#d7a42f"/><stop offset="1" stop-color="#9d6410"/></linearGradient><linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#102d58"/><stop offset="1" stop-color="#031126"/></linearGradient></defs>
+<rect width="512" height="512" rx="90" fill="#fff"/>
+<g transform="translate(42 12)">
+<path d="M90 94 L58 42 L104 68 L139 20 L160 68 L205 0 L227 68 L264 20 L299 68 L344 42 L313 94 L300 123 L102 123Z" fill="url(#g)" stroke="#ad741b" stroke-width="5" stroke-linejoin="round"/>
+<path d="M92 120 Q196 152 311 120 L300 298 L202 368 L103 298Z" fill="url(#n)" stroke="url(#g)" stroke-width="10"/>
+<path d="M136 166 Q150 132 166 160 Q177 184 197 156 Q215 130 230 160 Q246 184 263 158" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round"/>
+<path d="M139 184 L190 184 L205 215 L220 184 L271 184 L225 247 L225 302 L191 302 L191 247Z" fill="url(#g)" stroke="#fce7a0" stroke-width="3" stroke-linejoin="round"/>
+<g fill="none" stroke="#12325e" stroke-width="12" stroke-linecap="round"><path d="M326 145 Q386 158 398 222"/><path d="M332 174 Q368 183 378 218"/><path d="M338 201 Q350 205 355 217"/></g><circle cx="338" cy="230" r="8" fill="#12325e"/>
+<path d="M321 257 L366 269 L347 329 L305 315Z" fill="#102d58" stroke="url(#g)" stroke-width="5"/><g fill="url(#g)"><rect x="317" y="278" width="15" height="12" rx="2" transform="rotate(15 317 278)"/><rect x="337" y="284" width="15" height="12" rx="2" transform="rotate(15 337 284)"/><rect x="312" y="296" width="15" height="12" rx="2" transform="rotate(15 312 296)"/><rect x="332" y="302" width="15" height="12" rx="2" transform="rotate(15 332 302)"/></g>
+</g><text x="256" y="425" text-anchor="middle" font-family="Georgia,serif" font-size="49" font-weight="bold" fill="#071b3a" letter-spacing="2">EL YARIMA</text><text x="256" y="463" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="bold" letter-spacing="10" fill="#bd8b25">SUB DATA</text><path d="M95 480 H417" stroke="#d5a42f" stroke-width="3"/><text x="256" y="501" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="bold" letter-spacing="3" fill="#071b3a">DATA • AIRTIME • VTU</text></svg>
