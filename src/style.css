@@ -474,3 +474,43 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){
   .mobile-bottom-item{transition:none}
 }
+
+
+/* Compact All Services grid: four small services per row, with no hero banner */
+.all-services-heading{margin:0 0 15px}
+.all-services-heading h2{margin:0;color:#102443;font-size:22px;font-weight:850;letter-spacing:-.5px}
+.all-services-heading p{margin:5px 0 0;color:#7b899d;font-size:11px}
+.all-services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 8px}
+.all-service-item{position:relative;display:flex;min-width:0;min-height:92px;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:10px 4px 8px;border:1px solid #e8edf4;border-radius:13px;background:#fff;color:#102443;box-shadow:0 3px 10px rgba(7,27,58,.035);cursor:pointer;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+.all-service-item:active{transform:scale(.97)}
+.all-service-item:hover{border-color:#d7b75f;background:#fffdf7}
+.all-service-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:11px;background:#edf4fb;color:#123b68}
+.all-service-icon svg{width:18px;height:18px;stroke-width:1.9}
+.all-service-item>b{max-width:100%;overflow-wrap:anywhere;text-align:center;font-size:10px;line-height:1.2;font-weight:800}
+.all-service-badge{position:absolute;top:5px;right:4px;max-width:calc(100% - 8px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 4px;border-radius:4px;font-size:6px;line-height:1.1;font-weight:900;letter-spacing:.2px;background:#eef4fc;color:#27517d}
+.all-service-badge.badge-instant{background:#e7f7ed;color:#187343}
+.all-service-badge.badge-fast{background:#e9f3ff;color:#1768a5}
+.all-service-badge.badge-hot{background:#fff0e8;color:#bd4d19}
+.all-service-badge.badge-new{background:#fff7dc;color:#916716}
+.our-prices{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding:15px 16px;border:1px solid #e7ebf2;border-radius:15px;background:#fff;box-shadow:0 4px 13px rgba(7,27,58,.035)}
+.our-prices h3{margin:0;color:#102443;font-size:15px;font-weight:850}
+.our-prices p{margin:4px 0 0;color:#7b899d;font-size:10px}
+.our-prices button{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border:0;border-radius:10px;background:#102d58;color:#f2d68b;cursor:pointer}
+@media(max-width:650px){
+ .all-services-heading{margin-bottom:12px}
+ .all-services-heading h2{font-size:19px}
+ .all-services-grid{gap:8px 6px}
+ .all-service-item{min-height:78px;gap:5px;padding:9px 2px 7px;border-radius:11px}
+ .all-service-icon{width:29px;height:29px;flex-basis:29px;border-radius:9px}
+ .all-service-icon svg{width:16px;height:16px}
+ .all-service-item>b{font-size:9px;line-height:1.15}
+ .all-service-badge{top:4px;right:3px;padding:2px 3px;font-size:5px;letter-spacing:0}
+ .our-prices{margin-top:15px;padding:12px 13px}
+ .our-prices h3{font-size:14px}
+ .our-prices p{font-size:9px}
+}
+@media(max-width:360px){
+ .all-services-grid{gap:7px 5px}
+ .all-service-item{min-height:73px}
+ .all-service-item>b{font-size:8px}
+}
