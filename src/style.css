@@ -931,3 +931,99 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .settings-company-card h3{margin:4px 0;color:#102443;font-size:16px;font-weight:900;letter-spacing:1.1px}
 .settings-company-card p{margin:0;color:#7b899d;font-size:10px;line-height:1.5}
 .settings-company-year{align-self:flex-start;color:#9ba6b5;font-size:9px;font-weight:700}
+
+
+/* Premium telecom checkout refresh */
+.app-shell:has(.purchase-panel){background:#031315;color:#e9fbf5}
+.app-shell:has(.purchase-panel) .content{background:radial-gradient(ellipse at 75% 0%,#063b2b55,transparent 38%),#031315}
+.app-shell:has(.purchase-panel) .panel{background:linear-gradient(145deg,#071e20,#041416);border:1px solid #0b4543;border-radius:22px;box-shadow:0 18px 50px #0003;color:#e9fbf5}
+.app-shell:has(.purchase-panel) .panel-heading h2{font-size:20px;color:#f3fffb;letter-spacing:-.5px}
+.app-shell:has(.purchase-panel) .panel-heading p{font-size:12px;color:#8caeaa}
+.app-shell:has(.purchase-panel) .panel-icon.blue,.app-shell:has(.purchase-panel) .panel-icon.gold{background:#0a3b31;color:#28e8a2}
+.app-shell:has(.purchase-panel) .field-label{font-size:10px;color:#9bc4bb;letter-spacing:1.2px}
+.app-shell:has(.purchase-panel) .network-grid{gap:10px}
+.app-shell:has(.purchase-panel) .network-choice{min-height:102px;border:1px solid #123b3e;border-radius:17px;background:linear-gradient(145deg,#092124,#041619);gap:9px}
+.app-shell:has(.purchase-panel) .network-choice b{font-size:12px;color:#d9eee8}
+.app-shell:has(.purchase-panel) .network-choice.chosen{border:1.5px solid #25e7a0;background:linear-gradient(145deg,#073b30,#05201d);box-shadow:0 0 0 2px #25e7a018,0 0 24px #16d99a14}
+.app-shell:has(.purchase-panel) .network-check{color:#20e8a0;background:#064d3b;border-radius:50%;padding:3px;width:22px;height:22px;right:8px;top:8px}
+.app-shell:has(.purchase-panel) .network-logo{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:900;box-shadow:0 7px 16px #0004}
+.app-shell:has(.purchase-panel) .network-logo-mtn{background:#ffcc00;color:#07509b;font-style:italic;font-size:14px;letter-spacing:-1px}
+.app-shell:has(.purchase-panel) .network-logo-airtel{background:#e60023;color:white;font-size:11px}
+.app-shell:has(.purchase-panel) .airtel-wordmark{display:flex;flex-direction:column;align-items:center;font-weight:800;letter-spacing:-.5px}
+.app-shell:has(.purchase-panel) .airtel-wordmark i{width:16px;height:7px;border:2px solid white;border-bottom:0;border-radius:14px 14px 0 0;transform:rotate(-25deg);margin-bottom:2px}
+.app-shell:has(.purchase-panel) .network-logo-glo{background:#079b45;color:white;font-size:23px;font-weight:500;letter-spacing:-1.5px}
+.app-shell:has(.purchase-panel) .network-logo-9mobile{background:#003d31;color:#e2ff00;font-size:26px;font-style:italic}
+.app-shell:has(.purchase-panel) .nine-wordmark{display:flex;flex-direction:column;align-items:center;line-height:.8}
+.app-shell:has(.purchase-panel) .nine-wordmark span{font-size:7px;letter-spacing:0;color:#e8f7d0;font-style:normal;margin-top:5px}
+.app-shell:has(.purchase-panel) .input-wrap{height:58px;border:1px solid #28535a;background:#03191c;border-radius:16px;color:#9bc4bb}
+.app-shell:has(.purchase-panel) .input-wrap:focus-within{border-color:#23dfa0;box-shadow:0 0 0 3px #23dfa018}
+.app-shell:has(.purchase-panel) .input-wrap input{font-size:14px;color:#eafff7}
+.app-shell:has(.purchase-panel) .input-wrap input::placeholder{color:#607f7c}
+.app-shell:has(.purchase-panel) .input-end,.app-shell:has(.purchase-panel) .muted-label{color:#739590}
+.app-shell:has(.purchase-panel) .plans-list{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.app-shell:has(.purchase-panel) .plan-row{min-width:0;min-height:205px;position:relative;align-items:flex-start;flex-direction:column;gap:7px;padding:14px 12px;border:1px solid #163b42;border-radius:17px;background:linear-gradient(160deg,#0a1e28,#041417);overflow:hidden}
+.app-shell:has(.purchase-panel) .plan-row:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:var(--plan-accent,#1ba8ef);opacity:.75}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(1){--plan-accent:#21e9a0}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(2){--plan-accent:#1599ff}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(3){--plan-accent:#a56aff}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(4){--plan-accent:#ffc13b}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(5){--plan-accent:#ff456c}
+.app-shell:has(.purchase-panel) .plan-row.selected{border-color:var(--plan-accent);background:linear-gradient(160deg,#0c2b30,#05191c);box-shadow:0 0 20px color-mix(in srgb,var(--plan-accent) 13%,transparent)}
+.app-shell:has(.purchase-panel) .plan-radio{position:absolute;top:10px;right:10px;width:17px;height:17px;border-color:#4d7376}
+.app-shell:has(.purchase-panel) .plan-row.selected .plan-radio{border-color:var(--plan-accent)}
+.app-shell:has(.purchase-panel) .plan-row.selected .plan-radio i{background:var(--plan-accent)}
+.app-shell:has(.purchase-panel) .plan-main{margin-top:10px;gap:6px}
+.app-shell:has(.purchase-panel) .plan-main b{font-size:19px;color:#f3fffb;letter-spacing:-.6px}
+.app-shell:has(.purchase-panel) .plan-main small{font-size:10px;line-height:1.5;color:#9ab8b6}
+.app-shell:has(.purchase-panel) .plan-row strong{margin: auto 0 0;width:100%;padding:9px 5px;text-align:center;border-radius:11px;background:var(--plan-accent);color:#041615;font-size:12px;white-space:normal}
+.app-shell:has(.purchase-panel) .plan-row:nth-child(2) strong,.app-shell:has(.purchase-panel) .plan-row:nth-child(5) strong{color:#fff}
+.app-shell:has(.purchase-panel) .btn-primary{background:linear-gradient(100deg,#08c77b,#4af0a1);color:#032219;border:0;border-radius:15px;font-weight:900;box-shadow:0 8px 25px #0bda8b24}
+.app-shell:has(.purchase-panel) .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.app-shell:has(.purchase-panel) .safe-note{color:#8db4ad;font-size:11px}
+.app-shell:has(.purchase-panel) .safe-note svg{color:#21e7a0}
+.app-shell:has(.purchase-panel) .aside-banner{min-height:320px;border:1px solid #0b5b3c;border-radius:22px;background:radial-gradient(circle at 80% 25%,#0c773d55,transparent 42%),linear-gradient(145deg,#04291f,#031514);padding:26px}
+.app-shell:has(.purchase-panel) .banner-glow{background:#0a5a3c;color:#37f0a4;border:1px solid #1a9a67}
+.app-shell:has(.purchase-panel) .eyebrow.light{color:#25e5a0;font-weight:900;letter-spacing:1.2px}
+.app-shell:has(.purchase-panel) .aside-banner h3{font-size:28px;color:#f3fffb}
+.app-shell:has(.purchase-panel) .aside-banner p{font-size:12px;color:#a4c9bd}
+.app-shell:has(.purchase-panel) .banner-chips span{color:#bdf9df;border-color:#16704c;background:#05291f}
+.app-shell:has(.purchase-panel) .mini-balance{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px 12px}
+.app-shell:has(.purchase-panel) .mini-balance .muted-label{grid-column:1/-1}
+.app-shell:has(.purchase-panel) .mini-balance strong{font-size:25px;color:#f3fffb}
+.app-shell:has(.purchase-panel) .mini-balance .text-link{align-self:center;color:#27e5a0}
+.app-shell:has(.purchase-panel) .tip-card{background:#151b12;border-color:#544b13;border-radius:16px;color:#ffd83e}
+.app-shell:has(.purchase-panel) .tip-card b{color:#ffdf4c;font-size:12px}
+.app-shell:has(.purchase-panel) .tip-card p{color:#c1c3a2;font-size:11px}
+.app-shell:has(.purchase-panel) .footer>span{color:#85a8a2}
+.app-shell:has(.purchase-panel) .footer-secure{color:#9fc4bc}
+@media(max-width:900px){
+ .app-shell:has(.purchase-panel) .plans-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .app-shell:has(.purchase-panel) .plan-row{min-height:185px}
+}
+@media(max-width:650px){
+ .app-shell:has(.purchase-panel) .content{padding:18px 12px 12px}
+ .app-shell:has(.purchase-panel) .purchase-layout{gap:14px}
+ .app-shell:has(.purchase-panel) .purchase-panel{padding:16px 13px}
+ .app-shell:has(.purchase-panel) .panel-heading h2{font-size:19px}
+ .app-shell:has(.purchase-panel) .network-grid{gap:7px}
+ .app-shell:has(.purchase-panel) .network-choice{min-height:91px;border-radius:14px}
+ .app-shell:has(.purchase-panel) .network-logo{width:43px;height:43px}
+ .app-shell:has(.purchase-panel) .network-logo-mtn{font-size:12px}
+ .app-shell:has(.purchase-panel) .network-logo-glo{font-size:20px}
+ .app-shell:has(.purchase-panel) .network-choice b{font-size:10px}
+ .app-shell:has(.purchase-panel) .plans-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .app-shell:has(.purchase-panel) .plan-row{min-height:170px;padding:13px 11px}
+ .app-shell:has(.purchase-panel) .plan-main b{font-size:21px}
+ .app-shell:has(.purchase-panel) .plan-main small{font-size:10px}
+ .app-shell:has(.purchase-panel) .plan-row strong{font-size:12px}
+ .app-shell:has(.purchase-panel) .purchase-aside{grid-template-columns:1fr}
+ .app-shell:has(.purchase-panel) .aside-banner{grid-row:auto;min-height:245px}
+ .app-shell:has(.purchase-panel) .aside-banner h3{font-size:25px}
+ .app-shell:has(.purchase-panel) .tip-card{grid-column:auto}
+}
+@media(max-width:360px){
+ .app-shell:has(.purchase-panel) .network-choice{min-height:82px}
+ .app-shell:has(.purchase-panel) .network-logo{width:36px;height:36px}
+ .app-shell:has(.purchase-panel) .network-choice b{font-size:9px}
+ .app-shell:has(.purchase-panel) .plan-main b{font-size:18px}
+}
