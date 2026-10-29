@@ -880,3 +880,24 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .profile-email-chip{overflow-wrap:anywhere;white-space:normal}
  .profile-info-grid{grid-template-columns:1fr}
 }
+
+
+/* Functional Profile account settings */
+.profile-action-button{width:100%;text-align:left;cursor:pointer;color:inherit;font:inherit;background:transparent;border:0;display:flex;align-items:center;gap:14px}
+.profile-action-button>span:nth-child(2){flex:1;min-width:0}
+.profile-action-button:hover{background:rgba(215,177,94,.055)}
+.account-settings-modal{max-height:min(88vh,760px);overflow-y:auto;text-align:left}
+.account-settings-modal>.modal-symbol,.account-settings-modal>h2,.account-settings-modal>p{text-align:center}
+.account-settings-modal form{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.account-modal-input{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line,#d9dce5);border-radius:12px;background:var(--surface,#fff);color:var(--text,#172033);font:inherit;outline:none}
+.account-modal-input:focus{border-color:#c5a15b;box-shadow:0 0 0 3px rgba(197,161,91,.15)}
+.account-modal-hint{color:var(--muted,#788195);margin-top:-4px}
+.notification-pref-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line,#e5e7eb);cursor:pointer}
+.notification-pref-row span{display:flex;flex-direction:column;gap:4px}
+.notification-pref-row b{font-size:14px}
+.notification-pref-row small{font-size:12px;color:var(--muted,#788195)}
+.notification-pref-row input{width:20px;height:20px;accent-color:#b9924c;flex-shrink:0}
+.help-topic{padding:13px 0;border-bottom:1px solid var(--line,#e5e7eb)}
+.help-topic b{font-size:14px}
+.help-topic p{font-size:13px;line-height:1.55;color:var(--muted,#788195);margin:6px 0 0}
+@media(max-width:520px){.account-settings-modal{width:calc(100vw - 28px);padding:22px 18px}.profile-action-button{gap:10px}}
