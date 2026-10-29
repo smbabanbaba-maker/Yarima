@@ -913,3 +913,11 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
   .main-area{padding-bottom:0!important}
   .content{padding-bottom:52px!important}
 }
+
+
+/* Tighten the space between the last service card (Our Prices) and the footer on mobile. */
+@media(max-width:650px){
+  .our-prices{margin-bottom:0!important}
+  .footer{margin-top:10px!important;padding-top:10px!important;padding-bottom:0!important}
+  .content{padding-bottom:10px!important}
+}
