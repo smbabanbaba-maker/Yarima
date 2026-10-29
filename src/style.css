@@ -1540,3 +1540,159 @@ footer,.footer{color:#8190a3}
   animation:none!important;
  }
 }
+
+
+/* APP-WIDE MOTION SYSTEM — consistent, polished interactions across every screen */
+@keyframes appPageReveal {
+  from { opacity:0; transform:translate3d(0,12px,0); }
+  to { opacity:1; transform:translate3d(0,0,0); }
+}
+@keyframes appCardReveal {
+  from { opacity:0; transform:translateY(14px) scale(.992); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes appSoftGlow {
+  0%,100% { box-shadow:0 8px 24px #10274608; }
+  50% { box-shadow:0 12px 30px #10274612; }
+}
+@keyframes appIconFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-3px); }
+}
+.app-shell .content > * {
+  animation:appPageReveal .42s cubic-bezier(.2,.75,.25,1) both;
+}
+.app-shell .content > *:nth-child(2) { animation-delay:.035s; }
+.app-shell .content > *:nth-child(3) { animation-delay:.07s; }
+.app-shell .content > *:nth-child(4) { animation-delay:.105s; }
+.app-shell .content > *:nth-child(5) { animation-delay:.14s; }
+.app-shell .content .panel,
+.app-shell .content .profile-hero-card,
+.app-shell .content .balance-card,
+.app-shell .content .wallet-balance-hero,
+.app-shell .content .brand-promo-slide {
+  transform-origin:center top;
+}
+.app-shell .content .quick-card,
+.app-shell .content .service-tile,
+.app-shell .content .all-service-item,
+.app-shell .content .settings-row,
+.app-shell .content .profile-action-button,
+.app-shell .content .tx-row {
+  transition:transform .22s cubic-bezier(.2,.75,.25,1), box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+}
+.app-shell .content .quick-card:hover,
+.app-shell .content .service-tile:hover,
+.app-shell .content .all-service-item:hover,
+.app-shell .content .settings-row:hover,
+.app-shell .content .profile-action-button:hover,
+.app-shell .content .tx-row:hover {
+  transform:translateY(-2px);
+}
+.app-shell .content .service-icon,
+.app-shell .content .quick-icon,
+.app-shell .content .profile-section-icon {
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.app-shell .content .quick-card:hover .quick-icon,
+.app-shell .content .service-tile:hover .service-icon,
+.app-shell .content .profile-action-button:hover .profile-action-icon {
+  transform:scale(1.06);
+  box-shadow:0 6px 16px #10274612;
+}
+.app-shell .content .btn-primary,
+.app-shell .content .btn-gold,
+.app-shell .content .profile-edit-btn,
+.app-shell .content .profile-signout-btn,
+.app-shell .content .profile-delete-btn {
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.app-shell .content .btn-primary:hover:not(:disabled),
+.app-shell .content .btn-gold:hover:not(:disabled),
+.app-shell .content .profile-edit-btn:hover,
+.app-shell .content .profile-signout-btn:hover,
+.app-shell .content .profile-delete-btn:hover {
+  transform:translateY(-2px);
+  filter:saturate(1.08);
+}
+.app-shell .content .profile-hero-card {
+  animation:appCardReveal .55s cubic-bezier(.2,.75,.25,1) both,appSoftGlow 6s ease-in-out 1s infinite;
+}
+.app-shell .content .profile-details-panel { animation-delay:.06s; }
+.app-shell .content .profile-security-panel { animation-delay:.12s; }
+.app-shell .content .profile-account-actions { animation:appPageReveal .42s .18s both; }
+.app-shell .content .profile-danger-zone { animation:appPageReveal .42s .22s both; }
+.profile-company-credit {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  position:relative;
+  overflow:hidden;
+  margin-top:4px;
+  padding:19px 21px;
+  border:1px solid #dce5f0;
+  border-radius:19px;
+  background:linear-gradient(115deg,#fff 0%,#f7f9fd 55%,#fffaf0 100%);
+  box-shadow:0 8px 24px #10274608;
+  animation:appPageReveal .48s .26s both;
+}
+.profile-company-credit::after {
+  content:"";
+  position:absolute;
+  width:170px;height:170px;
+  right:-85px;top:-95px;
+  border:1px solid #d9aa4233;
+  border-radius:50%;
+  box-shadow:0 0 0 18px #d9aa4209,0 0 0 38px #d9aa4206;
+  pointer-events:none;
+}
+.profile-company-logo {
+  display:grid;place-items:center;flex:0 0 49px;
+  width:49px;height:49px;
+  border-radius:15px;
+  color:#f4d98c;
+  background:linear-gradient(145deg,#0a1d3b,#174578);
+  box-shadow:0 8px 20px #081a3528;
+  animation:appIconFloat 4s ease-in-out infinite;
+}
+.profile-company-logo span {
+  font-size:25px;font-weight:900;letter-spacing:-2px;
+  font-family:Manrope,Inter,system-ui,sans-serif;
+}
+.profile-company-copy {display:flex;flex-direction:column;gap:3px;min-width:0;position:relative;z-index:1}
+.profile-company-copy>span {font-size:9px;font-weight:800;letter-spacing:1.5px;color:#758398}
+.profile-company-copy strong {font-size:17px;letter-spacing:2.4px;color:#0a1d3b}
+.profile-company-copy small {font-size:10px;color:#748398;line-height:1.5}
+.profile-company-badge {
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 9px;border:1px solid #d9aa4240;border-radius:999px;
+  color:#88651a;background:#d9aa4210;font-size:9px;font-weight:800;
+  white-space:nowrap;position:relative;z-index:1;
+}
+.profile-company-badge svg {animation:appSoftGlow 3s ease-in-out infinite}
+@media(max-width:560px) {
+ .profile-company-credit {gap:11px;padding:15px 13px;border-radius:16px;flex-wrap:wrap}
+ .profile-company-logo {width:43px;height:43px;flex-basis:43px;border-radius:13px}
+ .profile-company-copy strong {font-size:15px}
+ .profile-company-copy small {font-size:9px}
+ .profile-company-badge {margin-left:54px;margin-top:-3px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .app-shell .content > *,
+ .app-shell .content .profile-hero-card,
+ .app-shell .content .profile-account-actions,
+ .app-shell .content .profile-danger-zone,
+ .profile-company-credit,
+ .profile-company-logo,
+ .profile-company-badge svg {
+  animation:none!important;
+ }
+ .app-shell .content .quick-card,
+ .app-shell .content .service-tile,
+ .app-shell .content .all-service-item,
+ .app-shell .content .settings-row,
+ .app-shell .content .profile-action-button,
+ .app-shell .content .tx-row,
+ .app-shell .content .btn-primary,
+ .app-shell .content .btn-gold { transition:none!important; }
+}
