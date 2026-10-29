@@ -901,3 +901,8 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .help-topic b{font-size:14px}
 .help-topic p{font-size:13px;line-height:1.55;color:var(--muted,#788195);margin:6px 0 0}
 @media(max-width:520px){.account-settings-modal{width:calc(100vw - 28px);padding:22px 18px}.profile-action-button{gap:10px}}
+
+/* Keep navigation access while removing repeated page-title banners. */
+.page-heading-clean{display:flex!important;min-height:0!important;margin:0!important;padding:0!important;align-items:center!important;justify-content:flex-start!important;gap:0!important}
+.page-heading-clean>div,.page-heading-clean .heading-actions{display:none!important}
+.page-heading-clean .mobile-menu-btn{margin:0 0 12px!important}
