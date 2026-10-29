@@ -1206,3 +1206,113 @@ footer,.footer{color:#8190a3}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* AUTH V2 — polished, app-like login and registration */
+.auth-screen-hausa{
+ background:
+  radial-gradient(ellipse at 5% 12%,#1d4778 0,transparent 32%),
+  radial-gradient(ellipse at 96% 88%,#72551e 0,transparent 27%),
+  #06152d;
+}
+.auth-layout{
+ max-width:1040px;
+ grid-template-columns:minmax(0,1.05fr) minmax(400px,.95fr);
+ border:1px solid #ffffff2b;
+ border-radius:30px;
+ box-shadow:0 35px 110px #0007,0 1px 0 #ffffff12 inset;
+}
+.auth-welcome-panel{
+ padding:43px 40px 30px;
+ background:
+  radial-gradient(circle at 85% 65%,#d9aa4210 0,transparent 32%),
+  linear-gradient(150deg,#0d315f 0%,#081d3b 58%,#07172f 100%);
+}
+.auth-brand-light img,.auth-mobile-brand img{
+ border-radius:13px;
+ box-shadow:0 8px 24px #0002;
+}
+.auth-pill{
+ display:inline-flex;
+ align-items:center;
+ gap:7px;
+ border:1px solid #d9aa4240;
+ background:#d9aa4214;
+ color:#f1d58d;
+ border-radius:999px;
+ padding:8px 12px;
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:.6px;
+}
+.auth-welcome-copy h2{max-width:390px;font-size:clamp(30px,3.2vw,38px);line-height:1.2}
+.auth-benefits{gap:20px;margin-top:31px}
+.auth-benefits>div{gap:12px}
+.auth-benefits>div>span{
+ width:35px;height:35px;flex:0 0 35px;
+ display:grid;place-items:center;
+ border:1px solid #d9aa4233;border-radius:11px;
+ background:#d9aa4212;color:#edce7d;
+}
+.auth-benefits b{font-size:12px;letter-spacing:.05px}
+.auth-benefits small{font-size:11px;line-height:1.6}
+.auth-panel-footer{position:relative;z-index:1}
+.auth-card-hausa{
+ padding:43px 38px 30px;
+ background:linear-gradient(180deg,#fff 0%,#fcfdff 100%);
+}
+.auth-card-hausa .auth-mark{
+ display:grid;place-items:center;
+ background:#edf3fa;color:#123b6d;
+ border:1px solid #dce6f2;
+}
+.auth-card-hausa .auth-heading h1{font-size:28px;letter-spacing:-.9px}
+.auth-card-hausa .auth-heading p{font-size:12.5px}
+.auth-card-hausa .auth-input{
+ background:#fbfcfe;border-color:#e1e7f0;
+ box-shadow:0 1px 2px #10274604;
+}
+.auth-card-hausa .auth-input:focus-within{
+ background:#fff;border-color:#c9a14b;
+ box-shadow:0 0 0 4px #d9aa421b,0 3px 10px #10274606;
+}
+.auth-card-hausa .auth-submit{
+ position:relative;overflow:hidden;
+ background:linear-gradient(110deg,#d9aa42 0%,#f2d68b 55%,#e8c46b 100%);
+ box-shadow:0 9px 22px #d9aa4238;
+ transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+.auth-card-hausa .auth-submit:hover:not(:disabled){
+ transform:translateY(-1px);
+ box-shadow:0 13px 27px #d9aa4245;
+ filter:saturate(1.05);
+}
+.auth-card-hausa .auth-submit:focus-visible,
+.auth-card-hausa .auth-switch button:focus-visible,
+.auth-eye:focus-visible{
+ outline:3px solid #174a7e55;outline-offset:3px;
+}
+.auth-card-hausa .auth-switch button{color:#174a7e}
+.auth-card-hausa .auth-foot{color:#758398}
+.auth-screen-hausa .auth-copyright{font-size:10px;letter-spacing:.35px}
+@media(max-width:800px){
+ .auth-screen-hausa{padding:20px 14px 43px}
+ .auth-layout{max-width:490px;grid-template-columns:minmax(0,1fr);border-radius:25px}
+ .auth-welcome-panel{display:none}
+ .auth-card-hausa{padding:30px 27px 25px}
+ .auth-mobile-brand{display:flex;align-items:center;gap:10px;margin-bottom:27px;padding-bottom:19px;border-bottom:1px solid #edf0f5}
+ .auth-mobile-brand img{width:40px;height:40px;object-fit:contain}
+ .auth-mobile-brand div{display:flex;flex-direction:column;gap:3px}
+ .auth-mobile-brand b{font:800 12px Manrope,sans-serif;letter-spacing:1px;color:#071b3a}
+ .auth-mobile-brand span{font-size:8px;letter-spacing:3px;font-weight:800;color:#b68b2c}
+ .auth-card-hausa .auth-mark{top:31px;right:26px;width:37px;height:37px;border-radius:11px}
+}
+@media(max-width:390px){
+ .auth-screen-hausa{padding:12px 8px 38px}
+ .auth-card-hausa{padding:23px 17px 20px}
+ .auth-card-hausa .auth-heading h1{font-size:22px}
+ .auth-card-hausa .auth-form{gap:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ .auth-card-hausa .auth-submit{transition:none}
+}
