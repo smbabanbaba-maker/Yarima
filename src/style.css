@@ -288,3 +288,36 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
  .promo-copy strong{font-size:12px}
  .promo-copy small{font-size:9px}
 }
+
+
+/* Premium Home Services: clean heading, compact attractive service shortcuts */
+.home-services-section{margin-top:24px;padding:22px 20px 19px;background:linear-gradient(180deg,#fff 0%,#fdfcf9 100%);border:1px solid #e9dfc9;border-radius:22px;box-shadow:0 10px 28px rgba(7,27,58,.055)}
+.home-services-section .section-title{display:flex;align-items:center;justify-content:flex-start;margin:0 0 17px;padding:0 0 12px;border-bottom:1px solid #eee7d9}
+.home-services-section .section-title h2{font-size:20px;line-height:1.2;font-weight:900;letter-spacing:-.55px;color:#071b3a;position:relative;padding-left:12px}
+.home-services-section .section-title h2:before{content:"";position:absolute;left:0;top:1px;bottom:1px;width:4px;border-radius:5px;background:linear-gradient(180deg,#f0d48b,#c18b25)}
+.home-services-section .section-title p,.home-services-section .section-title .text-link{display:none!important}
+.home-services-section .service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0;background:transparent;border:0;border-radius:0}
+.home-services-section .service-tile{min-width:0;min-height:82px;gap:7px;padding:10px 3px;border:1px solid #edf0f5;border-radius:15px;background:#fff;box-shadow:0 3px 9px rgba(7,27,58,.035);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+.home-services-section .service-icon{width:37px;height:37px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#f7f0df,#fff8e7);color:#102d58}
+.home-services-section .service-icon svg{width:19px;height:19px;stroke-width:2.1}
+.home-services-section .service-tile b{font-size:9px;line-height:1.2;font-weight:850;letter-spacing:.05px;color:#24354e;text-align:center}
+.home-services-section .service-tile:hover{transform:translateY(-3px);border-color:#d7a42f;background:#fffdf7;box-shadow:0 9px 18px rgba(7,27,58,.09)}
+.home-services-section .service-tile:active{transform:scale(.96)}
+.home-services-section .service-tile:focus-visible{outline:2px solid #d7a42f;outline-offset:2px}
+@media(max-width:650px){
+ .home-services-section{margin-top:21px;padding:17px 12px 14px;border-radius:19px}
+ .home-services-section .section-title{margin-bottom:13px;padding-bottom:10px}
+ .home-services-section .section-title h2{font-size:18px}
+ .home-services-section .service-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+ .home-services-section .service-tile{min-height:79px;gap:6px;padding:9px 2px;border-radius:13px}
+ .home-services-section .service-icon{width:34px;height:34px;border-radius:11px}
+ .home-services-section .service-icon svg{width:18px;height:18px}
+ .home-services-section .service-tile b{font-size:8.5px;line-height:1.25}
+}
+@media(max-width:360px){
+ .home-services-section{padding-left:9px;padding-right:9px}
+ .home-services-section .service-grid{gap:7px}
+ .home-services-section .service-tile{min-height:74px}
+ .home-services-section .service-icon{width:31px;height:31px}
+ .home-services-section .service-tile b{font-size:8px}
+}
