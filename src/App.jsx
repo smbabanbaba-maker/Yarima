@@ -61,10 +61,11 @@ function App(){
    <section className="brand-promo-rotator" aria-label="El Yarima promotions">
     <div className={'brand-promo-slide promo-slide-'+promoIndex}>
      <div className="promo-brand-mark"><img src="/logo.svg" alt="El Yarima logo"/></div>
+     <div className="promo-football" aria-label="Football">⚽</div>
      <div className="promo-copy">
-      <span className="promo-kicker">{['SMART DATA. SMART SAVINGS.','FAST. SIMPLE. RELIABLE.','YOUR DIGITAL LIFE, CONNECTED.'][promoIndex]}</span>
-      <strong>{['Stay connected for less.','All your essentials in one place.','Power your day with El Yarima.'][promoIndex]}</strong>
-      <small>{['Explore data and airtime bundles made for you.','Pay bills, manage your wallet and track activity.','Simple digital services, whenever you need them.'][promoIndex]}</small>
+      <span className="promo-kicker">{['EL YARIMA MATCH DAY','DATA • BILLS • DIGITAL LIFE','YOUR TRUSTED DIGITAL PARTNER'][promoIndex]}</span>
+      <strong>{['Fuel your match-day moments!','Everyday services, made easy.','Everything you need, in one app.'][promoIndex]}</strong>
+      <small>{['Get data, airtime and stay close to every goal.','Pay TV and electricity, buy cards and more.','Fast, simple and secure with El Yarima Sub Data.'][promoIndex]}</small>
      </div>
      <span className="promo-counter">0{promoIndex+1}<i>/03</i></span>
      <div className="promo-progress"><span key={promoIndex}/></div>
