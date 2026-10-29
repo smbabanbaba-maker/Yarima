@@ -1,0 +1,23 @@
+import {promisify} from 'node:util';
+import {scrypt as scryptCb,randomBytes,createHash,timingSafeEqual} from 'node:crypto';
+import {sql,ensureSchema,json,currentUser,cookies} from '../lib/db.js';
+const scrypt=promisify(scryptCb);
+const publicUser=u=>({id:u.id,fullName:u.full_name,email:u.email,phone:u.phone,createdAt:u.created_at});
+function setCookie(res,token,maxAge){res.setHeader('Set-Cookie',`yr_session=${token||''}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`);}
+async function hashPassword(p){const salt=randomBytes(16).toString('hex');const key=await scrypt(p,salt,64);return salt+':'+Buffer.from(key).toString('hex');}
+async function verifyPassword(p,stored){const [salt,hash]=String(stored).split(':');if(!salt||!hash)return false;const key=Buffer.from(await scrypt(p,salt,64));const expected=Buffer.from(hash,'hex');return key.length===expected.length&&timingSafeEqual(key,expected);}
+export default async function handler(req,res){try{await ensureSchema();
+if(req.method==='GET'){const u=await currentUser(req);return json(res,200,{user:u?publicUser(u):null});}
+if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return json(res,405,{error:'Method not allowed'});}
+const b=req.body&&typeof req.body==='object'?req.body:{};const action=String(b.action||'');
+if(action==='logout'){const token=cookies(req).yr_session;if(token)await sql`DELETE FROM yarima_app.sessions WHERE token_hash=${createHash('sha256').update(token).digest('hex')}`;setCookie(res,'',0);return json(res,200,{ok:true});}
+if(action==='register'){const fullName=String(b.fullName||'').trim().replace(/\s+/g,' '),email=String(b.email||'').trim().toLowerCase(),phone=String(b.phone||'').replace(/\D/g,''),password=String(b.password||'');
+if(fullName.length<2||fullName.length>100)return json(res,400,{error:'Enter your full name.'});
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||email.length>254)return json(res,400,{error:'Enter a valid email address.'});
+if(phone&&!/^0\d{10}$/.test(phone))return json(res,400,{error:'Phone number must be 11 digits or leave it blank.'});
+if(password.length<10||password.length>128)return json(res,400,{error:'Use a password with at least 10 characters.'});
+let rows;try{rows=await sql`INSERT INTO yarima_app.users(full_name,email,phone,password_hash) VALUES(${fullName},${email},${phone||null},${await hashPassword(password)}) RETURNING id,full_name,email,phone,created_at`;}catch(e){if(e.code==='23505')return json(res,409,{error:'An account with that email or phone already exists.'});throw e;}
+const u=rows[0];await sql`INSERT INTO yarima_app.wallets(user_id) VALUES(${u.id})`;const token=randomBytes(32).toString('base64url');await sql`INSERT INTO yarima_app.sessions(user_id,token_hash,expires_at) VALUES(${u.id},${createHash('sha256').update(token).digest('hex')},now()+interval '30 days')`;await sql`INSERT INTO yarima_app.audit_logs(user_id,action) VALUES(${u.id},'account.registered')`;setCookie(res,token,2592000);return json(res,201,{user:publicUser(u)});}
+if(action==='login'){const email=String(b.email||'').trim().toLowerCase(),password=String(b.password||'');const rows=await sql`SELECT id,full_name,email,phone,password_hash,status,created_at FROM yarima_app.users WHERE email=${email} LIMIT 1`;const u=rows[0];if(!u||u.status!=='active'||!(await verifyPassword(password,u.password_hash)))return json(res,401,{error:'Email or password is incorrect.'});const token=randomBytes(32).toString('base64url');await sql`INSERT INTO yarima_app.sessions(user_id,token_hash,expires_at) VALUES(${u.id},${createHash('sha256').update(token).digest('hex')},now()+interval '30 days')`;await sql`INSERT INTO yarima_app.audit_logs(user_id,action) VALUES(${u.id},'account.login')`;setCookie(res,token,2592000);return json(res,200,{user:publicUser(u)});}
+return json(res,400,{error:'Unknown authentication action.'});
+}catch(e){console.error('auth endpoint error',e?.message||e);return json(res,500,{error:'Account service is unavailable. Check the database connection and try again.'});}}
