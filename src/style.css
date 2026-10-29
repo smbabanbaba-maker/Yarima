@@ -1131,3 +1131,78 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .app-shell:has(.data-page-wrap) .network-plans-empty p{color:#748398!important}
 
 .network-mark img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0}.network-logo{background:#fff;padding:2px}.network-logo-mtn img{object-fit:contain}.network-logo-glo img,.network-logo-airtel img,.network-logo-9mobile img{object-fit:contain}
+
+
+/* EL YARIMA PREMIUM EXPERIENCE — visual polish, responsive feedback and accessibility */
+:root{
+ --navy:#081a35;
+ --navy2:#102f59;
+ --gold:#d9aa42;
+ --gold2:#f5df9c;
+ --green:#0b9d58;
+ --line:#e5eaf1;
+ --muted:#718096;
+ --surface:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{background:#f4f7fb}
+::selection{background:#d9aa4238;color:#071b3a}
+button{ -webkit-tap-highlight-color:transparent }
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.app-shell{background:radial-gradient(ellipse at 90% 0%,#e7eef9 0%,transparent 35%),#f5f7fb}
+.main-area{min-width:0}
+.content{isolation:isolate}
+.page-heading h1{letter-spacing:-1.05px}
+.page-heading p{line-height:1.65}
+.panel,.stat-card,.quick-card,.service-tile,.tx-row,.data-plan-card,.network-choice,.wallet-card,.profile-card{
+ transition:box-shadow .22s ease,border-color .22s ease,transform .22s ease,background-color .22s ease
+}
+.panel{border-color:#e5eaf1;box-shadow:0 8px 28px #10274608}
+.panel:hover{box-shadow:0 13px 34px #1027460d}
+.balance-card{overflow:hidden;isolation:isolate;box-shadow:0 18px 42px #071b3a22}
+.balance-card:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(115deg,#ffffff08 0%,transparent 44%,#f2d68b0c 100%)}
+.balance-orb{pointer-events:none}
+.btn,.icon-button,.quick-card,.service-tile,.network-choice,.plan-row,.data-plan-card,.nav-item{ -webkit-tap-highlight-color:transparent }
+.btn{min-height:42px}
+.btn-primary{background:linear-gradient(120deg,#081a35,#123b6d);box-shadow:0 8px 20px #071b3a20}
+.btn-primary:hover{background:linear-gradient(120deg,#102b50,#194c82)}
+.btn-gold{box-shadow:0 7px 18px #d9aa4228}
+.icon-button{transition:all .2s ease}
+.icon-button:hover{background:#fffaf0;box-shadow:0 5px 14px #d9aa421c;transform:translateY(-1px)}
+.quick-card,.service-tile{border-color:#e7ecf3;box-shadow:0 4px 14px #112a4605}
+.quick-card:hover,.service-tile:hover{transform:translateY(-3px);border-color:#d6b65f;box-shadow:0 12px 26px #112a4610}
+.nav-item{transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav-item:not(.active):hover{transform:translateX(2px)}
+.network-choice{border-color:#e5eaf1}
+.network-choice:hover{transform:translateY(-2px);box-shadow:0 7px 18px #10274610}
+.network-choice.chosen{box-shadow:0 0 0 3px #d9aa4220,0 7px 18px #10274608}
+.network-mark{overflow:hidden}
+.network-mark img{object-fit:contain}
+.app-shell:has(.purchase-panel) .network-logo-airtel,
+.app-shell:has(.data-page-wrap) .network-logo-airtel{background:#fff!important;color:#e60023!important;border:1px solid #f0d5d5!important}
+.network-logo-airtel img{padding:3px}
+.plan-row:hover,.data-plan-card:hover{transform:translateY(-1px);border-color:#d6b65f}
+.input-wrap,.table-search{transition:border-color .2s ease,box-shadow .2s ease}
+input,textarea,select{accent-color:#0b9d58}
+.notice{box-shadow:0 8px 24px #1027460b}
+.tx-row:hover{background:#fbfcfe}
+.avatar{box-shadow:0 3px 9px #071b3a12}
+.brand img{box-shadow:0 4px 12px #00000010}
+footer,.footer{color:#8190a3}
+@media(min-width:1200px){
+ .content{padding-top:38px}
+ .page-heading{margin-bottom:30px}
+}
+@media(max-width:800px){
+ .app-shell{background:#f5f7fb}
+ .topbar{backdrop-filter:blur(14px);background:#ffffffed}
+ .content{padding-top:23px}
+ .balance-card{box-shadow:0 13px 30px #071b3a1c}
+}
+@media(hover:none){
+ .quick-card:hover,.service-tile:hover,.network-choice:hover,.data-plan-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
