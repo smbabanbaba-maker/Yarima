@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import AuthGate from './AuthGate.jsx';
-import { Activity, ArrowDownLeft, ArrowLeftRight, ArrowRight, Bell, Check, ChevronDown, ChevronRight, CircleHelp, Clock3, Copy, CreditCard, Eye, EyeOff, FileText, Gift, Globe, Headphones, History, House, Lightbulb, Menu, MessageSquare, MoreHorizontal, Package, Phone, Plus, Search, Settings, ShieldCheck, Smartphone, Sparkles, Tv, UserRound, Wallet, Wifi, Zap, LogOut, Trash2, AlertTriangle, X } from 'lucide-react';
+import { Activity, ArrowDownLeft, ArrowLeftRight, ArrowRight, Bell, Check, ChevronDown, ChevronRight, CircleHelp, Clock3, Copy, CreditCard, Eye, EyeOff, FileText, Gift, Globe, Headphones, History, House, Lightbulb, Menu, MessageSquare, MoreHorizontal, Package, Phone, Plus, Search, Settings, ShieldCheck, Smartphone, Sparkles, Tv, UserRound, Wallet, Wifi, Zap, LogOut, Mail, Lock, Trash2, AlertTriangle, X } from 'lucide-react';
 
 const networks = [
   {name:'MTN', color:'#ffca05', ink:'#1b1b1b', mark:'MTN'},
