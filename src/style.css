@@ -1129,3 +1129,5 @@ button:focus-visible{outline:2px solid #d7a42f80;outline-offset:2px}
 .app-shell:has(.data-page-wrap) .network-plans-empty{background:#fff!important;border-color:#dce5ed!important;color:#64748b!important}
 .app-shell:has(.data-page-wrap) .network-plans-empty b{color:#25364b!important}
 .app-shell:has(.data-page-wrap) .network-plans-empty p{color:#748398!important}
+
+.network-mark img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0}.network-logo{background:#fff;padding:2px}.network-logo-mtn img{object-fit:contain}.network-logo-glo img,.network-logo-airtel img,.network-logo-9mobile img{object-fit:contain}
