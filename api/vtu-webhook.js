@@ -7,10 +7,13 @@ export default async function handler(req,res){
  const secret=process.env.VTU_WEBHOOK_SECRET;
  if(!secret)return json(res,503,{error:'Webhook not configured'});
  let raw;try{raw=await readRaw(req)}catch{return json(res,413,{error:'Invalid payload'})}
- const expected=Buffer.from('sha256='+createHmac('sha256',secret).update(raw).digest('hex'));
- const signature=Buffer.from(String(req.headers['x-vtu-signature-256']||''));
- if(expected.length!==signature.length||!timingSafeEqual(expected,signature))return json(res,401,{error:'Invalid signature'});
- const ts=Number(req.headers['x-vtu-timestamp']);if(!Number.isFinite(ts)||Math.abs(Date.now()/1000-ts)>300)return json(res,401,{error:'Expired delivery'});
+ const digest=createHmac('sha256',secret).update(raw).digest('hex');
+ const header=String(req.headers['x-vtu-signature-256']||'');
+ const supplied=header.startsWith('sha256=')?header.slice(7):header;
+ if(!/^[a-f0-9]{64}$/i.test(supplied)||!timingSafeEqual(Buffer.from(supplied,'hex'),Buffer.from(digest,'hex')))return json(res,401,{error:'Invalid signature'});
+ // Timestamp header is optional; when provided reject stale deliveries.
+ const timestampHeader=req.headers['x-vtu-timestamp'];
+ if(timestampHeader!==undefined){const ts=Number(timestampHeader);if(!Number.isFinite(ts)||Math.abs(Date.now()/1000-ts)>300)return json(res,401,{error:'Expired delivery'});}
  let payload;try{payload=JSON.parse(raw.toString('utf8'))}catch{return json(res,400,{error:'Invalid JSON'})}
  const event=String(payload.event||'');const d=payload.data||{};
  if(event==='ping')return json(res,200,{ok:true});
