@@ -15,5 +15,5 @@ export default async function handler(req,res){
   const body=await response.json();const list=Array.isArray(body?.data)?body.data:Array.isArray(body?.data?.plans)?body.data.plans:Array.isArray(body?.plans)?body.plans:[];
   const plans=list.filter(p=>p&&typeof p.variation_code==='string'&&Number.isFinite(Number(p.amount))&&Number(p.amount)>0).map(p=>({variation_code:p.variation_code,name:String(p.name||p.variation_code),amount:Number(p.amount),fixed_price:!!p.fixed_price}));
   return json(res,200,{network,provider:'VTU.ng',mode:'read-only',plans});
- }catch(e){console.error('VTU data plans error',e?.name||'Error');return json(res,503,{error:'Unable to load live plans right now.'})}
+ }catch(e){const cause=String(e?.cause?.code||'');const category=e?.name==='AbortError'?'provider_timeout':e instanceof TypeError?'provider_network_error':'internal_error';console.error('VTU data plans error',category,cause.slice(0,40));return json(res,503,{error:category==='provider_network_error'?'VTU.ng connection failed from our server. Please retry shortly.':category==='provider_timeout'?'VTU.ng took too long to respond.':'Unable to load live plans right now.',diagnosticCode:category})}
 }
