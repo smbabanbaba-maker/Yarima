@@ -1780,3 +1780,13 @@ footer,.footer{color:#8190a3}
 .pin-settings-field{display:block;width:min(100%,310px);text-align:left;margin-top:15px;font-size:12px;font-weight:700;color:var(--navy)}
 .pin-settings-field input{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #d9dfe9;border-radius:11px;background:white;color:var(--navy)}
 .pin-settings-card .pin-dots{margin-bottom:25px}
+
+/* Shared brand-colored confirmation dialog for auth, account and transactions */
+.yr-alert-backdrop{position:fixed;inset:0;z-index:20000;background:#071b3a70;display:flex;align-items:center;justify-content:center;padding:18px}
+.yr-alert-dialog{width:min(100%,420px);min-height:310px;background:#fff;border-radius:14px;box-shadow:0 22px 80px #071b3a45;display:flex;flex-direction:column;align-items:center;text-align:center;padding:35px 24px 24px;color:var(--navy,#071b3a)}
+.yr-alert-symbol{width:105px;height:105px;border-radius:50%;border:3px solid #13865e55;color:#13865e;display:grid;place-items:center;margin:0 0 22px}
+.yr-alert-symbol.yr-alert-error{color:#be3440;border-color:#be344055}
+.yr-alert-symbol.yr-alert-processing{color:#a07827;border-color:#d9aa4288}
+.yr-alert-dialog h2{font-family:Manrope,sans-serif;font-size:24px;margin:0 0 12px;font-weight:800}
+.yr-alert-dialog p{font-size:14px;line-height:1.6;color:#596679;margin:0 0 30px;overflow-wrap:anywhere}
+.yr-alert-ok{align-self:flex-end;min-width:95px;padding:12px 20px;border:0;border-radius:9px;background:var(--navy,#071b3a);color:var(--gold2,#f2d68b);font-weight:800;box-shadow:0 3px 0 #d9aa42}
