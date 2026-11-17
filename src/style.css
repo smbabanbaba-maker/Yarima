@@ -1799,3 +1799,28 @@ footer,.footer{color:#8190a3}
 @media(max-width:480px){.yr-alert-dialog{max-width:360px!important;padding:28px 20px 22px!important}.yr-alert-dialog h2{font-size:21px!important}.yr-alert-dialog p{font-size:13px!important}}
 
 .all-service-item.service-unavailable{opacity:.48;cursor:not-allowed;filter:grayscale(.45)}.all-service-item.service-unavailable:hover{transform:none;box-shadow:none}
+
+/* Consistent white-first purchase experience across devices */
+body,.app-shell,.main-content,.main-area,.content-area,.page-content{background-color:#f8fafc}
+.purchase-panel,.data-purchase-panel,.utility-purchase-panel,.panel{background:#fff}
+.airtime-purchase-layout .purchase-panel{background:#fff!important;color:#071b3a!important}
+.airtime-purchase-layout .field-label,.airtime-purchase-layout .panel-heading h2{color:#071b3a!important}
+.airtime-purchase-layout .panel-heading p,.airtime-purchase-layout .safe-note{color:#64748b!important}
+.airtime-purchase-layout .input-wrap{background:#fff!important;border-color:#dce4ee!important;color:#64748b!important}
+.airtime-purchase-layout .input-wrap input{color:#071b3a!important;background:transparent!important}
+.airtime-purchase-layout .network-choice{background:#fff!important;border-color:#dce4ee!important;color:#071b3a!important}
+.airtime-purchase-layout .network-choice.chosen{background:#eefaf3!important;border-color:#11a36a!important;box-shadow:0 0 0 1px #11a36a33}
+.airtime-purchase-layout .network-choice b{color:#071b3a!important}
+.airtime-purchase-layout .amount-choice{background:#fff!important;color:#071b3a!important;border:1px solid #dce4ee!important;transition:background .15s,border-color .15s,box-shadow .15s}
+.airtime-purchase-layout .amount-choice.selected{background:#e8f8ef!important;border:2px solid #119e65!important;color:#087344!important;box-shadow:0 0 0 3px #11a36a16;font-weight:800}
+.airtime-purchase-layout .amount-choice:focus-visible{outline:3px solid #119e65;outline-offset:2px}
+.utility-purchase-panel{max-width:900px;margin:24px auto;padding:32px!important;border:1px solid #e2e8f0;border-radius:20px;box-shadow:0 12px 35px #071b3a09}
+.utility-purchase-panel .panel-heading{border-bottom:1px solid #e9eef5;padding-bottom:22px;margin-bottom:26px}
+.utility-purchase-panel .panel-heading h2{font-size:20px}
+.utility-purchase-panel .panel-heading p{font-size:12px;line-height:1.6}
+.utility-purchase-panel .field-label{font-size:11px;letter-spacing:.7px;margin:22px 0 9px}
+.utility-purchase-panel .utility-field{display:block;width:100%;height:52px;padding:0 16px;background:#fff;border:1px solid #dce4ee;border-radius:12px;font-size:14px;color:#071b3a;outline:0;box-sizing:border-box}
+.utility-purchase-panel .utility-field:focus{border-color:#119e65;box-shadow:0 0 0 3px #119e651a}
+.utility-purchase-panel .safe-note{background:#f1f7fc;border:1px solid #e1eaf3;border-radius:12px;padding:14px;color:#52637a;line-height:1.65;display:flex;align-items:flex-start;gap:9px}
+.utility-purchase-panel .btn-secondary{border:1px solid #dce4ee;background:#fff;color:#071b3a;border-radius:10px;padding:12px 18px;font-weight:700;cursor:pointer}
+@media(max-width:640px){.utility-purchase-panel{margin:12px 10px;padding:20px!important;border-radius:16px}.utility-purchase-panel .panel-heading h2{font-size:18px}.airtime-purchase-layout .amount-choice{min-height:54px}}
