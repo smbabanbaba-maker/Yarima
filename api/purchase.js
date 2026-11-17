@@ -6,7 +6,8 @@ async function checkPin(pin,stored){const [salt,hash]=String(stored||'').split('
 import {sql,ensureSchema,json,currentUser} from '../lib/db.js';
 const networks=new Set(['mtn','airtel','glo','t2mobile']);
 export default async function handler(req,res){
- if(req.method!=='POST'){res.setHeader('Allow','POST');return json(res,405,{error:'Method not allowed'});}
+ if(req.method==='GET'){try{await ensureSchema();const u=await currentUser(req);if(!u)return json(res,401,{error:'Please sign in.'});const ref=String(req.query?.reference||'');if(!/^[a-f0-9-]{36}$/i.test(ref))return json(res,400,{error:'Invalid reference.'});const rows=await sql`SELECT status,reference,updated_at FROM yarima_app.orders WHERE user_id=${u.id} AND reference=${ref} LIMIT 1`;if(!rows[0])return json(res,404,{error:'Transaction not found.'});res.setHeader('Cache-Control','no-store');return json(res,200,{reference:rows[0].reference,status:rows[0].status,updatedAt:rows[0].updated_at});}catch(e){console.error('Purchase status error',e?.message||e);return json(res,503,{error:'Status temporarily unavailable.'});}}
+ if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return json(res,405,{error:'Method not allowed'});}
  if(process.env.VTU_PURCHASES_ENABLED!=='true')return json(res,503,{error:'Purchases are temporarily unavailable. No wallet debit was made.'});
  const origin=String(req.headers.origin||'');
  try{if(!origin||new URL(origin).host!==req.headers.host||new URL(origin).protocol!=='https:')return json(res,403,{error:'Invalid origin'});}catch{return json(res,403,{error:'Invalid origin'});}
