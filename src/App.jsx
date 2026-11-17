@@ -67,7 +67,7 @@ function App(){
      </div>
      <div className="balance-amount">{showBalance?fmt(balance):'₦ ••••••'}</div>
      <div className="balance-footer">
-      <div><span className="light-label">WALLET ACCOUNT</span><b>08123456789 <button className="copy-btn" onClick={()=>{navigator.clipboard?.writeText('08123456789');setNotice('Demo wallet number copied.')}} aria-label="Copy wallet number"><Copy size={13}/></button></b></div>
+      <div><span className="light-label">WALLET ACCOUNT</span><b>Not assigned yet</b></div>
       <button className="btn btn-gold" onClick={()=>{setShowFund(true);setPage('Wallet')}}><Plus size={16}/> Fund wallet</button>
      </div>
      <div className="balance-orb orb-one"/><div className="balance-orb orb-two"/>
