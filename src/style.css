@@ -1764,3 +1764,19 @@ footer,.footer{color:#8190a3}
 .pin-error{color:#b72c37;background:#fff0f1;border:1px solid #f7d0d3;border-radius:10px;padding:10px 14px;margin:0 0 15px;font-size:13px}
 .pin-help{font-size:11px!important;letter-spacing:normal!important;color:#74849a!important;margin-top:18px!important;font-weight:400!important}
 @media(max-width:400px){.pin-pad button{width:68px;height:68px}.pin-avatar{margin-top:43px}.pin-pad{gap:13px}}
+
+/* Brand-consistent purchase PIN, navy/gold only */
+.pin-overlay{background:#f5f7fb!important}
+.pin-card{color:var(--navy)!important}
+.pin-close{color:var(--navy)!important;border-color:var(--line)!important}
+.pin-secure{background:linear-gradient(110deg,var(--navy),var(--navy2))!important;color:var(--gold2)!important;box-shadow:0 6px 18px #071b3a24!important}
+.pin-avatar{border-color:var(--gold)!important;color:var(--navy)!important}
+.pin-eyebrow,.pin-card>p{color:#9c7423!important}
+.pin-dots span.filled{background:var(--gold)!important;border-color:var(--gold)!important}
+.pin-pad button{border-color:var(--gold)!important;color:var(--navy)!important}
+.pin-pad button:active{background:#f7f1e4!important}
+.pin-confirm{background:var(--navy)!important;color:var(--gold2)!important}
+.pin-fingerprint{color:var(--gold)!important}
+.pin-settings-field{display:block;width:min(100%,310px);text-align:left;margin-top:15px;font-size:12px;font-weight:700;color:var(--navy)}
+.pin-settings-field input{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #d9dfe9;border-radius:11px;background:white;color:var(--navy)}
+.pin-settings-card .pin-dots{margin-bottom:25px}
