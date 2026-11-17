@@ -11,7 +11,7 @@ export default function AuthGate({onAuth}){
  const [pin,setPin]=useState('');
  const [confirmPin,setConfirmPin]=useState('');
  const [busy,setBusy]=useState(false);
- const [error,setError]=useState('');
+ const [error,setError]=useState(''); const [authAlert,setAuthAlert]=useState(null);
  const [show,setShow]=useState(false);
 
  async function submit(e){
@@ -20,13 +20,13 @@ export default function AuthGate({onAuth}){
    const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,pin,identifier:email})});
    const raw=await r.text();let d;try{d=JSON.parse(raw);}catch{throw new Error('Server is temporarily unavailable. Please try again later.');}
    if(!r.ok)throw new Error(d.error||'Something went wrong. Please try again.');
-   onAuth(d.user);
-  }catch(e){setError(e.message||'Connection failed. Please try again.');}
+   setAuthAlert({type:'success',message:mode==='register'?'Registration Successful':'Login Successful',user:d.user});
+  }catch(e){setError(e.message||'Connection failed. Please try again.');setAuthAlert({type:'error',message:e.message||'Connection failed. Please try again.'});}
   finally{setBusy(false);}
  }
 
  const register=mode==='register';
- return <main className="auth-screen auth-screen-hausa">
+ return <main className="auth-screen auth-screen-hausa">{authAlert&&<div className="yr-alert-backdrop" role="presentation"><section className="yr-alert-dialog" role="alertdialog" aria-modal="true" aria-label="Authentication result"><div className={'yr-alert-symbol yr-alert-'+authAlert.type}>{authAlert.type==='success'?<CheckCircle2 size={48}/>:<Lock size={42}/>}</div><h2>Alert!!</h2><p>{authAlert.message}</p><button className="yr-alert-ok" onClick={()=>{const result=authAlert;setAuthAlert(null);if(result.type==='success')onAuth(result.user)}}>OK</button></section></div>}
   <div className="auth-decoration auth-decoration-one"/><div className="auth-decoration auth-decoration-two"/>
   <section className="auth-layout" key={mode}>
    <aside className="auth-welcome-panel">
