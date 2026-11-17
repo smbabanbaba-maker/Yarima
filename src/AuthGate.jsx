@@ -16,7 +16,7 @@ export default function AuthGate({onAuth}){
   e.preventDefault();setBusy(true);setError('');
   try{
    const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,identifier:email})});
-   const d=await r.json();
+   const raw=await r.text();let d;try{d=JSON.parse(raw);}catch{throw new Error('Server is temporarily unavailable. Please try again later.');}
    if(!r.ok)throw new Error(d.error||'Something went wrong. Please try again.');
    onAuth(d.user);
   }catch(e){setError(e.message||'Connection failed. Please try again.');}
