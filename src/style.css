@@ -1797,3 +1797,5 @@ footer,.footer{color:#8190a3}
 .yr-alert-symbol{display:flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important}
 .yr-alert-symbol.yr-alert-success{color:#13865e!important}.yr-alert-symbol.yr-alert-error{color:#dc3545!important}.yr-alert-symbol.yr-alert-processing{color:#b88624!important}
 @media(max-width:480px){.yr-alert-dialog{max-width:360px!important;padding:28px 20px 22px!important}.yr-alert-dialog h2{font-size:21px!important}.yr-alert-dialog p{font-size:13px!important}}
+
+.all-service-item.service-unavailable{opacity:.48;cursor:not-allowed;filter:grayscale(.45)}.all-service-item.service-unavailable:hover{transform:none;box-shadow:none}
