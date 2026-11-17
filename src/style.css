@@ -1790,3 +1790,10 @@ footer,.footer{color:#8190a3}
 .yr-alert-dialog h2{font-family:Manrope,sans-serif;font-size:24px;margin:0 0 12px;font-weight:800}
 .yr-alert-dialog p{font-size:14px;line-height:1.6;color:#596679;margin:0 0 30px;overflow-wrap:anywhere}
 .yr-alert-ok{align-self:flex-end;min-width:95px;padding:12px 20px;border:0;border-radius:9px;background:var(--navy,#071b3a);color:var(--gold2,#f2d68b);font-weight:800;box-shadow:0 3px 0 #d9aa42}
+
+/* Responsive alert dialog safeguards */
+.yr-alert-backdrop{position:fixed!important;inset:0!important;z-index:2147483000!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(7,27,58,.68)!important;padding:16px!important}
+.yr-alert-dialog{width:100%!important;max-width:420px!important;max-height:calc(100dvh - 32px)!important;overflow-y:auto!important;margin:auto!important;background:#fff!important;border-radius:18px!important;box-shadow:0 24px 75px #0005!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;padding:32px 24px 24px!important}
+.yr-alert-symbol{display:flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important}
+.yr-alert-symbol.yr-alert-success{color:#13865e!important}.yr-alert-symbol.yr-alert-error{color:#dc3545!important}.yr-alert-symbol.yr-alert-processing{color:#b88624!important}
+@media(max-width:480px){.yr-alert-dialog{max-width:360px!important;padding:28px 20px 22px!important}.yr-alert-dialog h2{font-size:21px!important}.yr-alert-dialog p{font-size:13px!important}}
