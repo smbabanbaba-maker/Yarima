@@ -1,4 +1,8 @@
-import {randomUUID} from 'node:crypto';
+import {randomUUID,scrypt as scryptCb,timingSafeEqual} from 'node:crypto';
+import {promisify} from 'node:util';
+const scrypt=promisify(scryptCb);
+async function checkPin(pin,stored){const [salt,hash]=String(stored||'').split(':');if(!salt||!hash)return false;const expected=Buffer.from(hash,'hex');const actual=Buffer.from(await scrypt(pin,salt,64));return expected.length===actual.length&&timingSafeEqual(expected,actual);}
+
 import {sql,ensureSchema,json,currentUser} from '../lib/db.js';
 const networks=new Set(['mtn','airtel','glo','t2mobile']);
 export default async function handler(req,res){
@@ -17,6 +21,11 @@ export default async function handler(req,res){
  const base=key.startsWith('vtu_sk_test_')?'https://sandbox.vtu.ng/v1':'https://api.vtu.ng/v1';
  try{
   await ensureSchema();const user=await currentUser(req);if(!user)return json(res,401,{error:'Please sign in'});
+  const pin=String(req.body?.pin||'');if(!/^\\d{4}$/.test(pin))return json(res,400,{error:'Enter your 4-digit purchase PIN.'});
+  const pinRows=await sql`SELECT pin_hash,pin_attempts,pin_locked_until FROM yarima_app.users WHERE id=${user.id}`;const pinRow=pinRows[0];if(!pinRow?.pin_hash)return json(res,428,{error:'Set up your purchase PIN before buying.',code:'PIN_SETUP_REQUIRED'});
+  if(pinRow.pin_locked_until&&new Date(pinRow.pin_locked_until)>new Date())return json(res,429,{error:'Too many incorrect PIN attempts. Try again in 15 minutes.'});
+  if(!(await checkPin(pin,pinRow.pin_hash))){await sql`UPDATE yarima_app.users SET pin_attempts=CASE WHEN pin_locked_until IS NOT NULL AND pin_locked_until<now() THEN 1 ELSE pin_attempts+1 END,pin_locked_until=CASE WHEN pin_attempts>=4 THEN now()+interval '15 minutes' ELSE NULL END WHERE id=${user.id}`;return json(res,401,{error:'Incorrect purchase PIN.'});}
+  await sql`UPDATE yarima_app.users SET pin_attempts=0,pin_locked_until=NULL WHERE id=${user.id}`;
   let priceKobo=amount*100;let name='Airtime';
   if(kind==='data'){
    const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),9000);let response;
