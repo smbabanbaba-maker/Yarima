@@ -5,6 +5,7 @@ export default function AuthGate({onAuth}){
  const [mode,setMode]=useState('login');
  const [fullName,setFullName]=useState('');
  const [email,setEmail]=useState('');
+ const [username,setUsername]=useState('');
  const [phone,setPhone]=useState('');
  const [password,setPassword]=useState('');
  const [busy,setBusy]=useState(false);
@@ -14,7 +15,7 @@ export default function AuthGate({onAuth}){
  async function submit(e){
   e.preventDefault();setBusy(true);setError('');
   try{
-   const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,phone,password})});
+   const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,identifier:email})});
    const d=await r.json();
    if(!r.ok)throw new Error(d.error||'Something went wrong. Please try again.');
    onAuth(d.user);
@@ -46,11 +47,12 @@ export default function AuthGate({onAuth}){
     <div className="auth-heading">
      <span className="auth-eyebrow"><ShieldCheck size={14}/>{register?'CREATE YOUR ACCOUNT':'SECURE SIGN IN'}</span>
      <h1>{register?'Create an account':'Sign in to your account'}</h1>
-     <p>{register?'Enter your details below to get started.':'Enter your email and password to continue.'}</p>
+     <p>{register?'Enter your details below to get started.':'Enter your email, username or phone number and password.'}</p>
     </div>
     <form onSubmit={submit} className="auth-form">
      {register&&<label>Full name<div className="auth-input"><UserRound size={17}/><input value={fullName} onChange={e=>setFullName(e.target.value)} placeholder="e.g. Musa Abdullahi" autoComplete="name" required minLength={2} maxLength={100}/></div></label>}
-     <label>Email address<div className="auth-input"><Mail size={17}/><input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com" autoComplete="email" required maxLength={254}/></div></label>
+     <label>{register?'Email address':'Email, username or phone number'}<div className="auth-input"><Mail size={17}/><input type={register?'email':'text'} value={email} onChange={e=>setEmail(e.target.value)} placeholder={register?'you@example.com':'Email, username or 08012345678'} autoComplete={register?'email':'username'} required maxLength={254}/></div></label>
+     {register&&<label>Username<div className="auth-input"><UserRound size={17}/><input value={username} onChange={e=>setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g,'').slice(0,30))} placeholder="e.g. musa123" autoComplete="username" required minLength={3} maxLength={30} pattern="[a-z][a-z0-9_]{2,29}"/></div></label>}
      {register&&<label>Phone number <span className="auth-optional">(optional)</span><div className="auth-input"><Phone size={17}/><input type="tel" inputMode="numeric" value={phone} onChange={e=>setPhone(e.target.value.replace(/[^0-9]/g,'').slice(0,11))} placeholder="08012345678" autoComplete="tel" maxLength={11}/></div></label>}
      <label>Password<div className="auth-input"><Lock size={17}/><input type={show?'text':'password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={register?'At least 6 characters':'Enter your password'} autoComplete={register?'new-password':'current-password'} required minLength={register?6:1} maxLength={128}/><button type="button" className="auth-eye" onClick={()=>setShow(v=>!v)} aria-label={show?'Hide password':'Show password'}>{show?<EyeOff size={17}/>:<Eye size={17}/>}</button></div>{register&&<small className="auth-hint">Use at least 6 characters.</small>}</label>
      {error&&<div className="auth-error" role="alert">{error}</div>}
