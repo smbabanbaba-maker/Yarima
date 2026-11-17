@@ -15,7 +15,7 @@ export default function AuthGate({onAuth}){
  const [show,setShow]=useState(false);
 
  async function submit(e){
-  e.preventDefault();if(mode==='register'&&(!/^\\d{4}$/.test(pin)||pin!==confirmPin)){setError('Enter matching 4-digit purchase PINs.');return;}setBusy(true);setError('');
+  e.preventDefault();if(mode==='register'&&(!/^\d{4}$/.test(pin)||pin!==confirmPin)){setError('Enter matching 4-digit purchase PINs.');return;}setBusy(true);setError('');
   try{
    const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,pin,identifier:email})});
    const raw=await r.text();let d;try{d=JSON.parse(raw);}catch{throw new Error('Server is temporarily unavailable. Please try again later.');}
