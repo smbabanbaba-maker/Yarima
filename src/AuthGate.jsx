@@ -8,14 +8,16 @@ export default function AuthGate({onAuth}){
  const [username,setUsername]=useState('');
  const [phone,setPhone]=useState('');
  const [password,setPassword]=useState('');
+ const [pin,setPin]=useState('');
+ const [confirmPin,setConfirmPin]=useState('');
  const [busy,setBusy]=useState(false);
  const [error,setError]=useState('');
  const [show,setShow]=useState(false);
 
  async function submit(e){
-  e.preventDefault();setBusy(true);setError('');
+  e.preventDefault();if(mode==='register'&&(!/^\\d{4}$/.test(pin)||pin!==confirmPin)){setError('Enter matching 4-digit purchase PINs.');return;}setBusy(true);setError('');
   try{
-   const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,identifier:email})});
+   const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify({action:mode,fullName,email,username,phone,password,pin,identifier:email})});
    const raw=await r.text();let d;try{d=JSON.parse(raw);}catch{throw new Error('Server is temporarily unavailable. Please try again later.');}
    if(!r.ok)throw new Error(d.error||'Something went wrong. Please try again.');
    onAuth(d.user);
@@ -55,6 +57,7 @@ export default function AuthGate({onAuth}){
      {register&&<label>Username<div className="auth-input"><UserRound size={17}/><input value={username} onChange={e=>setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g,'').slice(0,30))} placeholder="e.g. musa123" autoComplete="username" required minLength={3} maxLength={30} pattern="[a-z][a-z0-9_]{2,29}"/></div></label>}
      {register&&<label>Phone number <span className="auth-optional">(optional)</span><div className="auth-input"><Phone size={17}/><input type="tel" inputMode="numeric" value={phone} onChange={e=>setPhone(e.target.value.replace(/[^0-9]/g,'').slice(0,11))} placeholder="08012345678" autoComplete="tel" maxLength={11}/></div></label>}
      <label>Password<div className="auth-input"><Lock size={17}/><input type={show?'text':'password'} value={password} onChange={e=>setPassword(e.target.value)} placeholder={register?'At least 6 characters':'Enter your password'} autoComplete={register?'new-password':'current-password'} required minLength={register?6:1} maxLength={128}/><button type="button" className="auth-eye" onClick={()=>setShow(v=>!v)} aria-label={show?'Hide password':'Show password'}>{show?<EyeOff size={17}/>:<Eye size={17}/>}</button></div>{register&&<small className="auth-hint">Use at least 6 characters.</small>}</label>
+     {register&&<><label>4-digit purchase PIN<div className="auth-input"><Lock size={17}/><input type="password" inputMode="numeric" pattern="[0-9]{4}" maxLength={4} value={pin} onChange={e=>setPin(e.target.value.replace(/\\D/g,'').slice(0,4))} placeholder="••••" autoComplete="new-password" required/></div></label><label>Confirm purchase PIN<div className="auth-input"><ShieldCheck size={17}/><input type="password" inputMode="numeric" pattern="[0-9]{4}" maxLength={4} value={confirmPin} onChange={e=>setConfirmPin(e.target.value.replace(/\\D/g,'').slice(0,4))} placeholder="••••" autoComplete="new-password" required/></div><small className="auth-hint">This PIN is required every time you buy data or airtime. Do not share it.</small></label></>}
      {error&&<div className="auth-error" role="alert">{error}</div>}
      <button className="auth-submit" type="submit" disabled={busy}>{busy?'Please wait…':register?'Create account':'Sign in'} {!busy&&<ArrowRight size={17}/>}</button>
     </form>
