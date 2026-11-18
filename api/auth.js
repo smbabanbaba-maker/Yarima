@@ -10,6 +10,38 @@ export default async function handler(req,res){try{await ensureSchema();
 if(req.method==='GET'){const u=await currentUser(req);return json(res,200,{user:u?publicUser(u):null});}
 if(req.method!=='POST'){res.setHeader('Allow','GET, POST');return json(res,405,{error:'Method not allowed'});}
 const b=req.body&&typeof req.body==='object'?req.body:{};const action=String(b.action||'');
+if(action==='forgot-password'){
+ const identifier=String(b.identifier||'').trim().toLowerCase();
+ if(!identifier||identifier.length>254)return json(res,400,{error:'Enter your email or username.'});
+ if(!process.env.RESEND_API_KEY||!process.env.PASSWORD_RESET_FROM_EMAIL)return json(res,503,{error:'Password recovery email is not configured yet. Contact support.'});
+ const rows=await sql`SELECT id,email FROM yarima_app.users WHERE (email=${identifier} OR username=${identifier}) AND status='active' LIMIT 1`;
+ if(rows[0]){
+  const token=randomBytes(32).toString('hex'),tokenHash=createHash('sha256').update(token).digest('hex');
+  await sql`DELETE FROM yarima_app.password_resets WHERE user_id=${rows[0].id}`;
+  await sql`INSERT INTO yarima_app.password_resets(user_id,token_hash,expires_at) VALUES(${rows[0].id},${tokenHash},now()+interval '15 minutes')`;
+  const url='https://www.alyarimasub.com.ng/?reset='+encodeURIComponent(token);
+  let sent=false;
+  try{
+   const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+process.env.RESEND_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({from:process.env.PASSWORD_RESET_FROM_EMAIL,to:[rows[0].email],subject:'EL YARIMA — Reset your password',text:'Use this secure link to reset your password (expires in 15 minutes): '+url+'\\nIf you did not request this, ignore this email.'})});
+   sent=response.ok;
+  }catch(e){console.error('Password reset mail delivery failed',e?.name||'Error')}
+  if(!sent){await sql`DELETE FROM yarima_app.password_resets WHERE token_hash=${tokenHash}`;return json(res,503,{error:'Unable to send recovery email right now. Try again later.'});}
+ }
+ return json(res,200,{ok:true,message:'If an active account matches, a password reset link has been sent to its registered email.'});
+}
+if(action==='reset-password'){
+ const token=String(b.token||''),password=String(b.password||'');
+ if(!/^[a-f0-9]{64}$/.test(token))return json(res,400,{error:'Invalid recovery link.'});
+ if(password.length<10||password.length>128)return json(res,400,{error:'New password must contain at least 10 characters.'});
+ const tokenHash=createHash('sha256').update(token).digest('hex');
+ const rows=await sql`DELETE FROM yarima_app.password_resets WHERE token_hash=${tokenHash} AND expires_at>now() RETURNING user_id`;
+ if(!rows[0])return json(res,400,{error:'Recovery link has expired or was already used.'});
+ const hash=await hashPassword(password);
+ await sql`UPDATE yarima_app.users SET password_hash=${hash},updated_at=now() WHERE id=${rows[0].user_id} AND status='active'`;
+ await sql`DELETE FROM yarima_app.sessions WHERE user_id=${rows[0].user_id}`;
+ await sql`INSERT INTO yarima_app.audit_logs(user_id,action) VALUES(${rows[0].user_id},'password.reset')`;
+ return json(res,200,{ok:true,message:'Password changed. Sign in with your new password.'});
+}
 if(action==='logout'){const token=cookies(req).yr_session;if(token)await sql`DELETE FROM yarima_app.sessions WHERE token_hash=${createHash('sha256').update(token).digest('hex')}`;setCookie(res,'',0);return json(res,200,{ok:true});}
 if(action==='register'){const fullName=String(b.fullName||'').trim().replace(/\s+/g,' '),email=String(b.email||'').trim().toLowerCase(),username=String(b.username||'').trim().toLowerCase(),phone=String(b.phone||'').replace(/\D/g,''),password=String(b.password||''),pin=String(b.pin||'');
 if(fullName.length<2||fullName.length>100)return json(res,400,{error:'Enter your full name.'});
