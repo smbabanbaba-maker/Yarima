@@ -16,7 +16,7 @@ export default async function handler(req,res){
   const reference='yrfund_'+randomBytes(16).toString('hex');
   await sql`INSERT INTO yarima_app.funding_intents(reference,user_id,amount_kobo) VALUES(${reference},${user.id},${amount})`;
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),9000);let response;
-  try{response=await fetch('https://api.paystack.co/transaction/initialize',{method:'POST',headers:{Authorization:'Bearer '+secret,'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:user.email,amount,currency:'NGN',reference,metadata:{source:'el_yarima_wallet'}}),signal:controller.signal})}finally{clearTimeout(timer)}
+  try{response=await fetch('https://api.paystack.co/transaction/initialize',{method:'POST',headers:{Authorization:'Bearer '+secret,'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:user.email,amount,currency:'NGN',reference,callback_url:'https://www.alyarimasub.com.ng/?reference='+encodeURIComponent(reference),metadata:{source:'el_yarima_wallet'}}),signal:controller.signal})}finally{clearTimeout(timer)}
   if(!response.ok)return json(res,502,{error:'Paystack could not initialize checkout. No charge was made.'});
   const body=await response.json();
   const url=body?.data?.authorization_url;
