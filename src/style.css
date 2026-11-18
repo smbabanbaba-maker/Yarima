@@ -1947,3 +1947,42 @@ button,input,select,textarea{font:inherit}button{transition:background-color .16
 .yr-feature-floating{display:none!important}
 @media(max-width:650px){.yr-feature-banner{height:70px!important;max-height:70px!important;padding:8px 12px!important;grid-template-columns:minmax(0,1fr) 54px!important;margin:8px 0 12px!important}.yr-feature-content h2{font-size:15px!important;margin:3px 0!important}.yr-feature-content p{font-size:9px!important}.yr-feature-label{font-size:7px!important}.yr-feature-art{height:55px!important;transform:scale(.19)!important}}
 @media(max-width:380px){.yr-feature-banner{grid-template-columns:minmax(0,1fr) 40px!important}.yr-feature-content h2{font-size:13px!important}.yr-feature-art{transform:scale(.15)!important}}
+
+/* EL YARIMA — premium animated home experience */
+.yr-home-intro{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(210px,.75fr);align-items:center;min-height:230px;padding:32px 40px;margin:0 0 22px;border-radius:24px;background:radial-gradient(ellipse at 80% 30%,rgba(33,93,169,.48),transparent 47%),linear-gradient(118deg,#071b3a 0%,#0c2d5a 58%,#071b3a 100%);border:1px solid rgba(219,178,92,.23);box-shadow:0 20px 48px rgba(7,27,58,.13);color:#fff}
+.yr-home-intro:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(90deg,transparent 22%,#000 100%)}
+.yr-home-intro-copy{position:relative;z-index:2;animation:yrHomeRise .65s ease both}
+.yr-home-kicker{display:inline-flex;align-items:center;gap:8px;color:#f3d48c;font-size:10px;font-weight:800;letter-spacing:2px}
+.yr-home-live-dot{width:7px;height:7px;border-radius:50%;background:#54e4b3;box-shadow:0 0 0 4px rgba(84,228,179,.12);animation:yrHomePulse 2.6s ease-in-out infinite}
+.yr-home-intro h1{font-size:clamp(25px,3.4vw,44px);line-height:1.12;letter-spacing:-1.35px;margin:15px 0 13px;font-weight:850;color:#fff}
+.yr-home-intro h1 em{font-style:normal;color:#f4d48e}
+.yr-home-intro-copy>p{color:#d2def0;font-size:13px;line-height:1.7;max-width:470px;margin:0}
+.yr-home-intro-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.yr-home-intro-chips span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.065);border-radius:99px;color:#e9f1ff;font-size:10px;font-weight:650;backdrop-filter:blur(6px)}
+.yr-home-intro-chips svg{color:#f4d48e}
+.yr-home-intro-visual{position:relative;height:230px;display:grid;place-items:center;animation:yrHomeRise .85s .12s ease both}
+.yr-home-glow{position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(65,148,243,.29),transparent 72%);filter:blur(5px)}
+.yr-home-orbit{position:absolute;border:1px solid rgba(255,255,255,.15);border-radius:50%;transform:rotate(-25deg)}
+.yr-home-orbit-a{width:180px;height:180px;border-style:dashed;animation:yrHomeSpin 34s linear infinite}
+.yr-home-orbit-b{width:230px;height:230px;border-color:rgba(242,203,121,.16);animation:yrHomeSpin 48s linear infinite reverse}
+.yr-home-center{position:relative;display:grid;place-items:center;width:100px;height:100px;border-radius:27px;background:linear-gradient(145deg,#fff,#e9f1ff);border:5px solid rgba(255,255,255,.13);box-shadow:0 22px 48px rgba(0,0,0,.3),0 0 0 12px rgba(255,255,255,.04);transform:rotate(-8deg);animation:yrHomeFloat 6s ease-in-out infinite}
+.yr-home-center img{width:72%;height:72%;object-fit:contain}
+.yr-home-satellite{position:absolute;display:grid;place-items:center;width:47px;height:47px;border-radius:16px;color:#fff;background:linear-gradient(145deg,#1e5d9c,#113a72);border:1px solid rgba(255,255,255,.28);box-shadow:0 12px 26px rgba(0,0,0,.22);animation:yrHomeFloat 5s ease-in-out infinite}
+.yr-home-satellite-data{top:18px;right:27px;color:#f4d48e;animation-delay:-1s}
+.yr-home-satellite-wallet{bottom:21px;left:20px;animation-delay:-2.4s}
+.yr-home-satellite-shield{bottom:24px;right:12px;background:linear-gradient(145deg,#168568,#0c564a);animation-delay:-3.3s}
+.yr-home-section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:15px}
+.yr-home-section-heading h2{font-size:21px;letter-spacing:-.6px;margin:4px 0 0;color:#071b3a}
+.yr-home-section-kicker{font-size:9px;font-weight:850;letter-spacing:1.8px;color:#a47a2b}
+.yr-home-section-aside{font-size:11px;color:#748297}
+.home-quick-grid .quick-card,.home-services-section .service-tile{transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.home-quick-grid .quick-card:hover,.home-services-section .service-tile:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(7,27,58,.11);border-color:rgba(217,170,66,.4)}
+.home-hero .balance-card{transition:box-shadow .3s ease,transform .3s ease}.home-hero .balance-card:hover{transform:translateY(-2px);box-shadow:0 20px 45px rgba(7,27,58,.15)}
+@keyframes yrHomeRise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes yrHomeFloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes yrHomePulse{0%,100%{box-shadow:0 0 0 4px rgba(84,228,179,.12)}50%{box-shadow:0 0 0 8px rgba(84,228,179,0)}}
+@keyframes yrHomeSpin{to{rotate:360deg}}
+@media(max-width:850px){.yr-home-intro{padding:26px 26px;grid-template-columns:minmax(0,1fr) 190px;min-height:205px}.yr-home-intro-visual{height:190px;transform:scale(.8)}.yr-home-intro h1{font-size:30px}}
+@media(max-width:650px){.yr-home-intro{grid-template-columns:minmax(0,1fr) 98px;min-height:184px;padding:20px 17px;border-radius:18px;gap:2px}.yr-home-intro h1{font-size:clamp(21px,5.5vw,27px);letter-spacing:-.8px;margin:10px 0}.yr-home-intro-copy>p{font-size:10px;line-height:1.55}.yr-home-intro-chips{margin-top:13px;gap:6px}.yr-home-intro-chips span{padding:6px 8px;font-size:8px}.yr-home-intro-chips svg{width:12px;height:12px}.yr-home-kicker{font-size:8px;letter-spacing:1.2px}.yr-home-intro-visual{height:150px;transform:scale(.52);transform-origin:center center}.yr-home-section-heading h2{font-size:18px}.yr-home-section-aside{font-size:9px}}
+@media(max-width:380px){.yr-home-intro{grid-template-columns:minmax(0,1fr) 60px;padding:17px 12px}.yr-home-intro h1{font-size:20px}.yr-home-intro-visual{transform:scale(.4)}.yr-home-intro-chips span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.yr-home-intro *, .yr-home-intro-copy,.yr-home-intro-visual{animation:none!important;transition:none!important}.home-quick-grid .quick-card,.home-services-section .service-tile,.home-hero .balance-card{transition:none!important}}
