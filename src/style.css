@@ -1936,3 +1936,14 @@ button,input,select,textarea{font:inherit}button{transition:background-color .16
 @media(max-width:850px){.yr-feature-banner{grid-template-columns:minmax(0,1fr) 190px;padding:18px 25px;min-height:150px}.yr-feature-content h2{font-size:24px}.yr-feature-art{transform:scale(.48)}}
 @media(max-width:650px){.yr-feature-banner{grid-template-columns:minmax(0,1fr) 95px;gap:3px;padding:17px 14px;min-height:145px;margin:14px 0 18px;border-radius:15px}.yr-feature-content h2{font-size:20px;line-height:1.18;letter-spacing:-.45px}.yr-feature-content p{font-size:10px;line-height:1.5}.yr-feature-label{font-size:8px;letter-spacing:1px}.yr-feature-trust{font-size:9px;margin-top:9px}.yr-feature-art{height:115px;transform:scale(.37);transform-origin:center center}.yr-feature-floating{font-size:10px}}
 @media(max-width:380px){.yr-feature-banner{grid-template-columns:minmax(0,1fr) 70px;padding:14px 11px}.yr-feature-content h2{font-size:18px}.yr-feature-art{transform:scale(.30)}}
+
+/* Ultra-slim full-width banner: under half the previous height */
+.yr-feature-banner{min-height:0!important;height:76px!important;max-height:76px!important;padding:9px 24px!important;grid-template-columns:minmax(0,1fr) 105px!important;margin:10px 0 15px!important;border-radius:13px!important;align-items:center!important}
+.yr-feature-content h2{font-size:18px!important;line-height:1.15!important;margin:4px 0!important;letter-spacing:-.3px!important}
+.yr-feature-content p{font-size:10px!important;line-height:1.3!important;margin:0!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yr-feature-label{font-size:8px!important;letter-spacing:1px!important}
+.yr-feature-trust{display:none!important}
+.yr-feature-art{height:65px!important;transform:scale(.25)!important;transform-origin:center!important;overflow:visible}
+.yr-feature-floating{display:none!important}
+@media(max-width:650px){.yr-feature-banner{height:70px!important;max-height:70px!important;padding:8px 12px!important;grid-template-columns:minmax(0,1fr) 54px!important;margin:8px 0 12px!important}.yr-feature-content h2{font-size:15px!important;margin:3px 0!important}.yr-feature-content p{font-size:9px!important}.yr-feature-label{font-size:7px!important}.yr-feature-art{height:55px!important;transform:scale(.19)!important}}
+@media(max-width:380px){.yr-feature-banner{grid-template-columns:minmax(0,1fr) 40px!important}.yr-feature-content h2{font-size:13px!important}.yr-feature-art{transform:scale(.15)!important}}
