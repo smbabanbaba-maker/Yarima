@@ -12,6 +12,16 @@ if(!adminId||String(u.id).toLowerCase()!==adminId)return json(res,403,{error:'Yo
    ]);
    return json(res,200,{users:users[0],wallets:wallets[0],transactions:tx[0],orders:orders[0]});
   }
+  if(section==='finance'){
+   const [activity,services,daily,network,balances]=await Promise.all([
+    sql`SELECT COUNT(*)::int AS transactions,COALESCE(SUM(amount_kobo) FILTER (WHERE type='credit' AND status='successful'),0)::text AS credited_kobo,COALESCE(SUM(amount_kobo) FILTER (WHERE type='debit'),0)::text AS debited_kobo,COALESCE(SUM(amount_kobo) FILTER (WHERE type='reversal' AND status='successful'),0)::text AS reversals_kobo,COUNT(*) FILTER (WHERE status='pending')::int AS pending FROM yarima_app.transactions`,
+    sql`SELECT service_type,COUNT(*)::int AS orders,COUNT(*) FILTER (WHERE status='successful')::int AS successful,COUNT(*) FILTER (WHERE status='failed')::int AS failed,COUNT(*) FILTER (WHERE status IN ('pending','processing'))::int AS pending,COALESCE(SUM(amount_kobo) FILTER (WHERE status='successful'),0)::text AS successful_kobo FROM yarima_app.orders GROUP BY service_type ORDER BY orders DESC`,
+    sql`SELECT (created_at AT TIME ZONE 'Africa/Lagos')::date::text AS day,COUNT(*)::int AS orders,COALESCE(SUM(amount_kobo) FILTER (WHERE status='successful'),0)::text AS sales_kobo FROM yarima_app.orders WHERE created_at>=now()-interval '30 days' GROUP BY 1 ORDER BY 1`,
+    sql`SELECT COALESCE(network,'Other') AS network,COUNT(*)::int AS orders,COALESCE(SUM(amount_kobo) FILTER (WHERE status='successful'),0)::text AS sales_kobo FROM yarima_app.orders GROUP BY network ORDER BY orders DESC`,
+    sql`SELECT status,COUNT(*)::int AS wallets,COALESCE(SUM(balance_kobo),0)::text AS balance_kobo FROM yarima_app.wallets GROUP BY status`
+   ]);
+   return json(res,200,{activity:activity[0],services, daily,networks:network,wallets:balances,provider:{name:'VTU.ng',balanceAvailable:false,message:'Provider account balance is not connected. This dashboard must not guess your VTU.ng funds.'}});
+  }
   if(section==='users'){
    const rows=await sql`SELECT u.id,u.full_name,u.username,u.email,u.phone,u.status,u.created_at,COALESCE(w.balance_kobo,0)::text AS balance_kobo FROM yarima_app.users u LEFT JOIN yarima_app.wallets w ON w.user_id=u.id ORDER BY u.created_at DESC LIMIT 100`;
    return json(res,200,{rows});
