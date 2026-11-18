@@ -1,26 +1,24 @@
 # EL YARIMA SUB DATA
 
-Premium, responsive dashboard concept for a Nigerian data, airtime and VTU brand. Built with React + Vite for quick Vercel deployment.
+Official website: **https://www.alyarimasub.com.ng/**
 
-## Included
-- Branded home dashboard, wallet balance card, quick actions and service tiles
-- Data bundle selection for MTN, Airtel, Glo and 9mobile
-- Airtime purchase interface with common denominations and custom amount
-- VTU service catalogue, transaction history, profile, settings and wallet screens
-- Responsive desktop, tablet and mobile navigation
-- Brand mark recreated as a local SVG in `public/logo.svg`
-- Demo-only wallet and purchase flows with clear notices
+The apex domain **https://alyarimasub.com.ng/** is configured in Vercel to redirect to the www hostname. The Vercel project is `yarima` and the previous `yarima-zeta.vercel.app` hostname remains available as a deployment alias.
 
-## Run locally
+## Stack
+React + Vite frontend, Vercel serverless API, Neon PostgreSQL, Paystack funding and VTU provider integration.
+
+## Development
 ```bash
 npm install
 npm run dev
-```
-
-## Build
-```bash
 npm run build
 ```
 
-## Production readiness
-This repository currently provides a front-end prototype. Wallet balance changes and purchases are simulated in the browser and are **not real financial transactions**. Before public launch, connect secure server-side authentication, a transactional wallet ledger/database, a verified payment gateway, and an authorized VTU/data provider API. Never store provider secrets in client-side code. Add server-side validation, idempotency, audit logging and webhook signature verification before handling money.
+## Production setup
+- Verify the official www hostname and apex redirect in Vercel Domains.
+- Keep API calls relative (e.g. `/api/auth`) so the app works on the custom domain without cross-origin changes.
+- Confirm Paystack dashboard callback and webhook configuration against the *actual* server endpoints before modifying any URLs. Do not use the homepage as a webhook URL.
+- Preserve existing email MX/SPF/DKIM records if modifying DNS.
+- Verify purchase provider callbacks, pending orders, refunds, wallet reconciliation, and authorization before enabling real-money VTU purchases.
+
+Do not put payment or VTU secret keys in frontend code.
