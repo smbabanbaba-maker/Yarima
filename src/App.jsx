@@ -97,10 +97,6 @@ function App(){
      <div className="yr-feature-label"><span className="yr-feature-label-dot"/> EL YARIMA SUB DATA</div>
      <h2>Your everyday digital services, <em>made simpler.</em></h2>
      <p>Top up airtime, choose a data bundle, and keep track of your purchases — all from one place.</p>
-     <div className="yr-feature-actions">
-      <button type="button" className="yr-feature-primary" onClick={()=>go('Buy Data')}>Buy data <ArrowRight size={17}/></button>
-      <button type="button" className="yr-feature-secondary" onClick={()=>go('Buy Airtime')}>Buy airtime <Smartphone size={16}/></button>
-     </div>
      <div className="yr-feature-trust"><ShieldCheck size={15}/> Purchase confirmation with your PIN</div>
     </div>
     <div className="yr-feature-art" aria-hidden="true">
